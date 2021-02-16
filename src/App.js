@@ -7,23 +7,18 @@ function App() {
       <header className="App-header">
 
        
-       <p class="makeinbold" >Prakash Kumar</p>
-       <p class="makeinbold" >Prakash Kumar</p>
-       <p class="makeinbold" >Prakash Kumar</p>
-       <p class="makeinbold" >Prakash Kumar</p>
-       
-       <p>
-         Prakash Kumar
-       </p>
+      <div>
+        First change in application
+        just for demo purposes
+      </div>
 
-       
-       <p>
-         Prakash Kumar
-       </p>
-       
-       <p>
-         Prakash Kumar
-       </p>
+      <h1>
+        I am SuperScientist
+      </h1>
+
+      <p>
+        I am big pubg fan
+      </p>
 
       </header>
     </div>
