@@ -5,17 +5,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+
        
-
-
-
-
        <p class="makeinbold" >Prakash Kumar</p>
        <p class="makeinbold" >Prakash Kumar</p>
        <p class="makeinbold" >Prakash Kumar</p>
-      <p class="makeinbold" >Prakash Kumar</p>
-
-
+       <p class="makeinbold" >Prakash Kumar</p>
        
        <p>
          Prakash Kumar
@@ -29,6 +24,7 @@ function App() {
        <p>
          Prakash Kumar
        </p>
+
       </header>
     </div>
   );
