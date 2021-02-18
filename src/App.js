@@ -9,21 +9,9 @@ function App() {
        
        <p class="makeinbold" >Prakash Kumar</p>
        <p class="makeinbold" >Prakash Kumar</p>
-       <p class="makeinbold" >Prakash Kumar</p>
-       <p class="makeinbold" >Prakash Kumar</p>
-       
-       <p>
-         Prakash Kumar
-       </p>
 
        
-       <p>
-         Prakash Kumar
-       </p>
-       
-       <p>
-         Prakash Kumar
-       </p>
+     
 
       </header>
     </div>
