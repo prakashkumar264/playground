@@ -3,9 +3,9 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Link,
-  Route,
-  Switch,
+  Route 
 } from 'react-router-dom';
+import exercisetwo from "./excercisetwo"
 
 
 
@@ -15,7 +15,13 @@ function App() {
       <header className="App-header"> 
        <p class="makeinbold" >Prakash Kumar</p>
        <Router>
-             <Link to={{ pathname: "https://github.com/prakashkumar264/playground" }} target="_blank" >Github</Link>
+         <ul>
+           <li><Link to="/">Home</Link></li>
+           <li><Link to={{ pathname: "https://github.com/prakashkumar264/playground" }} target="_blank" >Github</Link></li>
+           <li><Link to="/exercisetwo">Excercise Two</Link></li>
+         </ul>
+         
+         <Route path="/exercisetwo" component={exercisetwo}/>  
        </Router>
 
       </header>

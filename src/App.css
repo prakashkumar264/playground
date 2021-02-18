@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -37,4 +35,8 @@
 .makeinbold{
   font-size: x-large;
   color: red
+}
+
+li{
+  color: black;
 }
