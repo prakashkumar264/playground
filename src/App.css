@@ -33,10 +33,23 @@
 }
 
 .makeinbold{
-  font-size: x-large;
-  color: red
+  color: red;
+  text-align: center;
 }
 
 li{
   color: black;
+  font-size: large;
+  margin-bottom: 2px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+a:hover{
+  color: red;
+  text-decoration: underline;
 }

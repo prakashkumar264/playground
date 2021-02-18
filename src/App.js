@@ -13,7 +13,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header"> 
-       <p class="makeinbold" >Prakash Kumar</p>
+       <h2 class="makeinbold" >Prakash Kumar</h2>
+       
        <Router>
          <ul>
            <li><Link to="/">Home</Link></li>
@@ -26,7 +27,7 @@ function App() {
          <Route path="/exercisetwo" component={exercisetwo}/>
        </Router>
 
-      </header>
+       </header>
     </div>
   );
 }
