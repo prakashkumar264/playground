@@ -6,7 +6,7 @@ import {
   Route 
 } from 'react-router-dom';
 import exercisetwo from "./excercisetwo"
-
+import exerciseone from "./exerciseone"
 
 
 function App() {
@@ -18,10 +18,12 @@ function App() {
          <ul>
            <li><Link to="/">Home</Link></li>
            <li><Link to={{ pathname: "https://github.com/prakashkumar264/playground" }} target="_blank" >Github</Link></li>
+           <li><Link to="/exerciseone">Excercise One</Link></li>
            <li><Link to="/exercisetwo">Excercise Two</Link></li>
          </ul>
-         
-         <Route path="/exercisetwo" component={exercisetwo}/>  
+
+         <Route path="/exerciseone" component={exerciseone}/>
+         <Route path="/exercisetwo" component={exercisetwo}/>
        </Router>
 
       </header>
