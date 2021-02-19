@@ -1,72 +1,133 @@
-.App {
+.horizontalbar{
+  position: fixed;
+  top:0;
+  border: 1px solid grey;
+  width: 100%;
+  padding: 10px;
+  color: black; 
+  background-color: yellow;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.stickybar{
+  position: sticky;
+  top: 45px;
+  border: 1px solid grey;
+  width:100vw;
+  padding: 10px;
+  color: black; 
+  background-color: rgb(2, 132, 238);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+p{
+  margin-top: 100px;
+  margin-left: 30vw;
+  margin-right: 3vw;
+  text-align: justify;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.container{
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.makeinbold{
-  font-size: x-large;
-  color: red
-}
-
-
-.hoverRed a:hover {
-  color: red;
-}
-
-*{
-box-sizing: border-box;
-
-}
-.nav{
-  height: 400px;
-  border:10px solid grey;
-  width:150px;
+.relative {
+  position: relative;
   margin: auto;
-  padding: 20px;
-  box-sizing: border-box;
+  width: 500px;
+  height: 250px;
+  border: 2px solid black;
+} 
+
+.absoluteLeftBottom {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border: 2px solid red;
+  background-color: aqua;
+}
+
+.absoluteRightTop {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  width: 200px;
+  height: 50px;
+  border: 2px solid green;
+  background-color: bisque;
+}
+
+.absoluteCenter{
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 50px;
+  height: 50px;
+  border: 2px solid darkblue;
+  background-color: grey;
+}
+
+.direction{
   text-align: center;
+}
+
+a{
+  color: black;
+}
+
+a:visited{
   color: red;
 }
 
-ul{
-  list-style: none;
+
+a:hover{
+  font-size: 50px;
+}
+
+.beforeAfter::after{
+  content: " - this is after content";
+}
+
+.Box{
+  text-align: center;
+  border: 1px solid grey;
+  margin: 5px;
+}
+
+@media screen  and (min-width: 760px) {
+  .Box{
+    width: 100%;
+    height: 120px;
+    vertical-align: center;
+  }
+
+  .container{
+    text-align: center;
+    flex-direction: row;
+  }
+
 }
 
 
-li{
-  color: green;
+
+.boxFlex{
+  min-width: 200px;
+  min-height: 200px;
+  border: 2px solid black;
+  background-color: aqua;
+  color: black;
+  flex:25%;
+  box-sizing: border-box;
+  margin: 20px;
 }
+
