@@ -46,3 +46,27 @@
 .hoverRed a:hover {
   color: red;
 }
+
+*{
+box-sizing: border-box;
+
+}
+.nav{
+  height: 400px;
+  border:10px solid grey;
+  width:150px;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  color: red;
+}
+
+ul{
+  list-style: none;
+}
+
+
+li{
+  color: green;
+}
