@@ -15,51 +15,83 @@ h2 {
      display: flex;
      flex-direction: row;
      height:100%;
+     margin-bottom: 0.4rem;
+     margin-left: 0.4em;
+     margin-right: 0.4em;
    }
 
    .flex-item-left {
      background-color: #0de21d;
      padding: 10px;
      flex: 70%;
-     margin-left: 1em;
+     height: 500px;
    }
 
    .flex-item-right {
      background-color: #8e28dc;
      padding: 10px;
      flex: 30%;
-     margin-right: 1em;
-     margin-left: 1em;
+     margin-left: 0.5rem;
+     height: 500px;
    }
 
 
    @media (max-width: 640px) {
      .flex-container {
        flex-direction: column;
+       height: 500px;
      }
+
+     .flex-item-left {
+      height: 350px;
+    }
+
+     .flex-item-right {
+      margin-left: 0rem;
+      margin-top: 0.5em;
+      height: 150px;
+    }
+ 
+
    }
    
    .headerFirst{
-   background-color:#1f7ef3; 
-   padding-top:2x;    
-   margin: 1em; 
-   padding-bottom:20px; 
-   padding-left:5px
+   background-color:#1f7ef3;   
+   padding-left:5px;
+   padding-top: 0.25em;
+   padding-bottom: 0.25em;
+   margin-bottom: 0.4rem;
+   margin-left: 0.4em;
+   margin-right: 00.4em;
+   margin-top: 0.4em;
   }
    
    .hero{
    background-color:red; 
-   padding-top:2x;    
-    margin: 1em; 
-    padding-bottom:20px; 
-    padding-left:5px
+   padding-top:0.25em;    
+    padding-bottom: 3.5rem; 
+    padding-left:5px;
+    margin-bottom: 0.4rem;
+    margin-left: 0.4em;
+   margin-right: 00.4em;
    }
    
    .footer{
    background-color:grey;    
    padding-top:2x;    
-   margin: 1em; 
    padding-bottom:20px; 
-   padding-left:5px
+   padding-left:5px;
+   margin-left: 0.4em;
+   margin-right: 0.4em;
+   margin-bottom: 0.4em;
    }
-   
+
+   h5{
+     margin-top: 0em;
+     margin-bottom: 0em;
+   }
+
+   .borderForFlex{
+     border-style: solid;
+     border-color: black;
+   }

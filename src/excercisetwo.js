@@ -5,7 +5,7 @@ import React, { Component } from "react";
 class exercisetwo extends Component {
     render() {
       return (
-        <div>
+        <div class="borderForFlex">
         <div class="row headerFirst" >
           <h5>Header</h5>
         </div>
