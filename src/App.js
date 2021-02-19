@@ -1,5 +1,5 @@
 import './App.css';
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Link,
@@ -10,6 +10,9 @@ import exerciseone from "./exerciseone"
 
 
 function App() {
+
+  const [isNavOpen,setIsNavOpen]=useState(true)
+
   return (
     <div className="App">
       <header className="App-header"> 
@@ -27,6 +30,7 @@ function App() {
          <Route path="/exercisetwo" component={exercisetwo}/>
        </Router>
 
+      
        </header>
     </div>
   );
