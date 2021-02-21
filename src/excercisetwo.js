@@ -7,19 +7,23 @@ class exercisetwo extends Component {
       return (
         <div class="borderForFlex">
         <div class="row headerFirst" >
-          <h5>Header</h5>
+          <p style={{margin:'auto'}}><em>Header</em></p>
         </div>
 
         <div class="row hero" >
-          <h5>Hero</h5>
+          <p style={{margin:'auto'}} ><em>Hero</em></p>
         </div>
 
         <div class="flex-container">
-          <div class="flex-item-left"><h5>Content</h5></div>
-            <div class="flex-item-right"><h5>Sidebar</h5></div>
+          <div class="flex-item-left">
+            <p style={{margin:'auto'}} ><em>Content</em></p>
+          </div>
+          <div class="flex-item-right">
+            <p style={{margin:'auto'}} ><em>Sidebar</em></p>
+          </div>
         </div>
         <div class="row footer" >
-          <h5>Footer</h5>
+          <p style={{margin:'auto'}} ><em>Footer</em></p>
         </div>
 
         </div>

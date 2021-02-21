@@ -1,7 +1,4 @@
-h2 {
-    color:white;
-   }
-   
+
    html,
    body {
      height: 100%;
@@ -13,83 +10,80 @@ h2 {
 
    .flex-container {
      display: flex;
-     flex-direction: row;
-     height:100%;
+     flex-direction: column;
+     height:500px;
      margin-bottom: 0.4rem;
-     margin-left: 0.4em;
-     margin-right: 0.4em;
+     margin-left: 0.4rem;
+     margin-right: 0.4rem;
    }
 
    .flex-item-left {
      background-color: #0de21d;
      padding: 10px;
-     flex: 70%;
-     height: 500px;
+     height: 350px;
    }
 
    .flex-item-right {
      background-color: #8e28dc;
      padding: 10px;
-     flex: 30%;
-     margin-left: 0.5rem;
-     height: 500px;
+     margin-top: 0.5rem;
+     margin-left: 0rem;
+     height: 150px;
    }
 
 
-   @media (max-width: 640px) {
+   @media (min-width: 640px) {
      .flex-container {
-       flex-direction: column;
-       height: 500px;
+      flex-direction: row;
+       height: 100%;
      }
 
      .flex-item-left {
-      height: 350px;
+      height: 600px;
+      flex: 70%;
     }
 
      .flex-item-right {
-      margin-left: 0rem;
-      margin-top: 0.5em;
-      height: 150px;
+      margin-top: 0rem;
+      margin-left: 0.5rem;
+      height: 600px;
+      flex: 30%;
     }
- 
 
    }
    
    .headerFirst{
    background-color:#1f7ef3;   
    padding-left:5px;
-   padding-top: 0.25em;
-   padding-bottom: 0.25em;
+   padding-top: 0.25rem;
+   padding-bottom: 0.25rem;
    margin-bottom: 0.4rem;
-   margin-left: 0.4em;
-   margin-right: 00.4em;
-   margin-top: 0.4em;
+   margin-left: 0.4rem;
+   margin-right: 00.4rem;
+   margin-top: 0.4rem;
   }
    
    .hero{
    background-color:red; 
-   padding-top:0.25em;    
+   padding-top:0.25rem;    
     padding-bottom: 3.5rem; 
     padding-left:5px;
     margin-bottom: 0.4rem;
-    margin-left: 0.4em;
-   margin-right: 00.4em;
+    margin-left: 0.4rem;
+   margin-right: 00.4rem;
    }
    
    .footer{
    background-color:grey;    
-   padding-top: 0.25em;
-   padding-bottom: 0.25em;
+   padding-top: 0.25rem;
+   padding-bottom: 0.25rem;
    padding-left:5px;
-   margin-left: 0.4em;
-   margin-right: 0.4em;
-   margin-bottom: 0.4em;
+   margin-left: 0.4rem;
+   margin-right: 0.4rem;
+   margin-bottom: 0.4rem;
    }
 
-   h5{
-     margin-top: 0em;
-     margin-bottom: 0em;
-   }
+
 
    .borderForFlex{
      border: 2px solid black;
