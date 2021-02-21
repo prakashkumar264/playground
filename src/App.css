@@ -17,6 +17,7 @@
   flex-direction: column;
   font-size: calc(10px + 2vmin);
   color: white;
+  background-image: linear-gradient(to bottom right, rgba(255,0,0,0), rgba(255,0,0,1));
 }
 
 .App-link {
@@ -33,7 +34,7 @@
 }
 
 .makeinbold{
-  color: red;
+  color: rgb(6, 0, 85);
   text-align: center;
 }
 
