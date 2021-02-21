@@ -1,0 +1,90 @@
+
+   html,
+   body {
+     height: 100%;
+   }
+
+   * {
+     box-sizing: border-box;
+   }
+
+   .borderForFlex{
+    border: 2px solid black;
+    width: 90vw;
+    margin: auto;
+    margin-top: 40vh;
+  }
+
+   .flex-container {
+     display: flex;
+     flex-direction: column;
+     height:500px;
+     margin-bottom: 0.4rem;
+     margin-left: 0.4rem;
+     margin-right: 0.4rem;
+   
+   }
+
+   .flex-item-left {
+     background-color: #0de21d;
+     padding: 10px;
+     height: 350px;
+   }
+
+   .flex-item-right {
+     background-color: #8e28dc;
+     padding: 10px;
+     margin-top: 0.5rem;
+     margin-left: 0rem;
+     height: 150px;
+   }
+
+   .hero{
+     background-color:red; 
+     padding-top:0.25rem;    
+     padding-bottom: 5rem; 
+     padding-left:5px;
+     margin: 0.4rem;
+    }
+
+
+   @media (min-width: 640px) {
+     .flex-container {
+      flex-direction: row;
+       height: 100%;
+     }
+
+     .flex-item-left {
+      height: 600px;
+      flex: 70%;
+    }
+
+     .flex-item-right {
+      margin-top: 0rem;
+      margin-left: 0.5rem;
+      height: 600px;
+      flex: 30%;
+    }
+
+    .borderForFlex{
+      margin-top: 13vh;
+    }
+
+   }
+   
+   .headerFirst{
+    background-color:#1f7ef3;   
+    padding-left:5px;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    margin: 0.4rem;
+  }
+   
+   .footer{
+   background-color:grey;    
+   padding-top: 0.25rem;
+   padding-bottom: 0.25rem;
+   padding-left:5px;
+   margin: 0.4rem;
+   }
+
