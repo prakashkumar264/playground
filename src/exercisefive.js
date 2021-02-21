@@ -1,16 +1,13 @@
 import './exercisefive.css';
+import React from "react";
 
-
-import React, { Component } from "react";
-
-class Exercisefive extends Component {
-    render() {
+function Exercisefive()  {   
       return (
         <div >
                       
         </div>
       );
-    }
+    
   }
    
 export default Exercisefive;

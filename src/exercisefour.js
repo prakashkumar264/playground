@@ -7,7 +7,7 @@ function Exercisefour() {
       const [theme,setTheme] = useState( "darktheme");
       return (
         <div style={{margin:'auto'}} >
-        <div className={theme}>
+        <div className={theme } >
         {(() => {
                 if(theme === 'darktheme'){
                   return "This is dark theme"

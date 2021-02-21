@@ -5,24 +5,24 @@ import React, { Component } from "react";
 class Exercisetwo extends Component {
     render() {
       return (
-        <div class="borderForFlex">
-        <div class="row headerFirst" >
+        <div className="borderForFlex">
+        <div className="row headerFirst" >
           <p style={{margin:'auto'}}><em>Header</em></p>
         </div>
 
-        <div class="row hero" >
+        <div className="row hero" >
           <p style={{margin:'auto'}} ><em>Hero</em></p>
         </div>
 
-        <div class="flex-container">
-          <div class="flex-item-left">
+        <div className="flex-container">
+          <div className="flex-item-left">
             <p style={{margin:'auto'}} ><em>Content</em></p>
           </div>
-          <div class="flex-item-right">
+          <div className="flex-item-right">
             <p style={{margin:'auto'}} ><em>Sidebar</em></p>
           </div>
         </div>
-        <div class="row footer" >
+        <div className="row footer" >
           <p style={{margin:'auto'}} ><em>Footer</em></p>
         </div>
 
