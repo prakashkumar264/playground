@@ -2,7 +2,7 @@ import './excercisetwo.css';
 
 import React, { Component } from "react";
 
-class exercisetwo extends Component {
+class Exercisetwo extends Component {
     render() {
       return (
         <div class="borderForFlex">
@@ -31,4 +31,4 @@ class exercisetwo extends Component {
     }
   }
    
-  export default exercisetwo;
+  export default Exercisetwo;

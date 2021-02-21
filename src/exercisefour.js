@@ -4,35 +4,33 @@ import React, {useState} from 'react'
 
 
 function Exercisefour() {
-      const [Theme,SetTheme] = useState( "darktheme");
+      const [theme,setTheme] = useState( "darktheme");
       return (
         <div style={{margin:'auto'}} >
-        <div className={Theme}>
+        <div className={theme}>
         {(() => {
-                if(Theme == 'darktheme'){
+                if(theme === 'darktheme'){
                   return "This is dark theme"
-                }else{
-                  return "This is light theme"
                 }
-            })()}
+                return "This is light theme"
+        })()}
         </div>
 
         <div>
-          <button onClick={()=>{if(Theme == 'darktheme'){
-                                    SetTheme('lighttheme')
-                                  }else{
-                                    SetTheme('darktheme')
-                                  }
-                          }}>
-          <p >
+          <button onClick={()=>
+            {if(theme === 'darktheme'){
+                setTheme('lighttheme')
+            } else {
+                  setTheme('darktheme')
+            }}}>
+
            {(() => {
-                if(Theme == 'darktheme'){
+                if(theme === 'darktheme'){
                   return "Change to light theme"
-                }else{
-                  return "Change to dark theme"
                 }
+                return "Change to dark theme"              
             })()}
-          </p>
+          
           </button>
         </div>    
         </div>

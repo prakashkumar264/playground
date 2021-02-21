@@ -2,7 +2,7 @@ import './exercisethree.css'
 
 import React, { Component } from "react";
 
-class exercisethree extends Component {
+class Exercisethree extends Component {
     render() {
       return (
         <div >
@@ -12,4 +12,4 @@ class exercisethree extends Component {
     }
   }
    
-export default exercisethree;
+export default Exercisethree;

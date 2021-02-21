@@ -12,6 +12,7 @@
     border: 2px solid black;
     width: 90vw;
     margin: auto;
+    margin-top: 40vh;
   }
 
    .flex-container {
@@ -21,6 +22,7 @@
      margin-bottom: 0.4rem;
      margin-left: 0.4rem;
      margin-right: 0.4rem;
+   
    }
 
    .flex-item-left {
@@ -45,6 +47,7 @@
      margin: 0.4rem;
     }
 
+
    @media (min-width: 640px) {
      .flex-container {
       flex-direction: row;
@@ -61,6 +64,10 @@
       margin-left: 0.5rem;
       height: 600px;
       flex: 30%;
+    }
+
+    .borderForFlex{
+      margin-top: 13vh;
     }
 
    }

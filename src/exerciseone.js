@@ -1,7 +1,7 @@
 import './exerciseone.css';
 import React, { Component } from "react";
 
-class exerciseone extends Component {
+class Exerciseone extends Component {
     render() {
       return (
         <div style={{margin:'auto'}}>
@@ -64,4 +64,4 @@ class exerciseone extends Component {
     }
   }
    
-  export default exerciseone;
+  export default Exerciseone;

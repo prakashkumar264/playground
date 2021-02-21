@@ -5,11 +5,11 @@ import {
   Link,
   Route 
 } from 'react-router-dom';
-import exercisetwo from "./excercisetwo"
-import exerciseone from "./exerciseone"
-import exercisethree from "./exercisethree"
+import Exercisetwo from "./Exercisetwo"
+import Exerciseone from "./Exerciseone"
+import Exercisethree from "./Exercisethree"
 import Exercisefour from "./Exercisefour"
-import exercisefive from "./exercisefive"
+import Exercisefive from "./Exercisefive"
 
 
 function App() {
@@ -18,31 +18,30 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"> 
-       <h2 class="makeinbold" >Prakash Kumar</h2>
-       
-       <Router>
-         <ul>
-           <li><Link to="/">Home</Link></li>
+      <div className="App-header"> 
+      <Router>
+        <div className="navbar">
+          <ul>
+          <li><Link to="/">Home</Link></li>
            <li><Link to={{ pathname: "https://github.com/prakashkumar264/playground" }} target="_blank" >Github</Link></li>
-           <li><Link to="/exerciseone">Excercise One</Link></li>
-           <li><Link to="/exercisetwo">Excercise Two</Link></li>
-           <li><Link to="/exercisethree">Excercise Three</Link></li>
+           <li><Link to="/Exerciseone">Excercise One</Link></li>
+           <li><Link to="/Exercisetwo">Excercise Two</Link></li>
+           <li><Link to="/Exercisethree">Excercise Three</Link></li>
            <li><Link to="/Exercisefour">Excercise Four</Link></li>
-           <li><Link to="/exercisefive">Excercise Five</Link></li>
-
-         </ul>
-
-         <Route path="/exerciseone" component={exerciseone}/>
-         <Route path="/exercisetwo" component={exercisetwo}/>
-         <Route path="/exercisethree" component={exercisethree}/>
+           <li><Link to="/Exercisefive">Excercise Five</Link></li>
+          </ul>
+        </div>
+     
+         <Route path="/Exerciseone" component={Exerciseone}/>
+         <Route path="/Exercisetwo" component={Exercisetwo}/>
+         <Route path="/Exercisethree" component={Exercisethree}/>
          <Route path="/Exercisefour" component={Exercisefour}/>
-         <Route path="/exercisefive" component={exercisefive}/>
+         <Route path="/Exercisefive" component={Exercisefive}/>
  
        </Router>
 
       
-       </header>
+       </div>
     </div>
   );
 }
