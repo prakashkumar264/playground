@@ -32,6 +32,9 @@ class exerciseone extends Component {
                   <td>  <label for="degree">Choose Your MS Field : </label></td>
                   <td>
                       <select id="field" name="field">
+                        <option value="none" selected disabled hidden> 
+                            Select an Option 
+                        </option> 
                         <option value="cs">Computer Science</option>
                         <option value="electrical">Electrical</option>
                         <option value="instrumentation">Instrumentation</option>
@@ -45,7 +48,7 @@ class exerciseone extends Component {
                 </tr>
                 <tr>
                   <td> <label for="dob">Date of Birthday : </label></td>
-                  <td>  <input type="date" id="dob" name="dob" max="2021-01-01" /></td>
+                  <td>  <input type="date" id="dob" name="dob" min="1900-01-01" max="2121-01-01" /></td>
                 </tr>
                 <tr>
                   <td><label for="resume">Upload Resume  :  </label></td>
