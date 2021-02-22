@@ -5,6 +5,8 @@ function Exercisefive()  {
       return (
         <div className="stockBackground">
             <label><b>Current Status </b>: Not Started </label>
+
+            {/* Counter Buttons Start Here */}
             <div className="clockContainer">
               <div style={{margin:'auto'}}>
                     <button className="counterBtn">START</button>
@@ -21,6 +23,62 @@ function Exercisefive()  {
                 </div>
               </div>
             </div>
+
+            {/* Grid Start Here */}
+              <h4>Events</h4>
+             
+              <div className="eventsContainer">
+               
+                   <div className="cardContainer">
+                        <div className="cardtitle">Replay Clock</div>
+                        <div className="cardbody">09:30:30.485</div>
+                   </div>
+                   <div className="cardContainer">
+                        <div className="cardtitle">Event</div>
+                        <div className="cardbody">411</div>
+                   </div>
+                   <div className="cardContainer">
+                        <div className="cardtitle">Name</div>
+                        <div className="cardbody">NBBO</div>
+                   </div>
+                   <div className="cardContainer">
+                        <div className="cardtitle">Exchange 1</div>
+                        <div className="cardbody">Q</div>
+                   </div>
+                   <div className="cardContainer">
+                        <div className="cardtitle">Price 1</div>
+                        <div className="cardbody">142.79</div>
+                   </div>
+                   <div className="cardContainer">
+                        <div className="cardtitle">Share 1</div>
+                        <div className="cardbody">100</div>
+                   </div>
+                   <div className="cardContainer">
+                        <div className="cardtitle">Exchange 1</div>
+                        <div className="cardbody">Q</div>
+                   </div>
+                   <div className="cardContainer">
+                        <div className="cardtitle">Price 2</div>
+                        <div className="cardbody">142.9</div>
+                   </div>
+                   <div className="cardContainer">
+                        <div className="cardtitle">Share 2</div>
+                        <div className="cardbody">300</div>
+                   </div>
+                   <div className="cardContainer">
+                        <div className="cardtitle">Price 2</div>
+                        <div className="cardbody">N</div>
+                   </div>
+                   
+              </div>
+
+
+           
+            
+
+            {/* Order Book Start Here */}
+               <h4>Order Book</h4>
+
         </div>
       );
     

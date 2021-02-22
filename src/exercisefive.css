@@ -11,6 +11,16 @@ p{
     color: black;
 }
 
+h4{
+    color: black;
+}
+
+.clockContainer {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+
 .counterBtn{
     color: white;
     background-color: #3f51b5;
@@ -22,7 +32,6 @@ p{
     height: 20px;
     min-width: 65px;
     min-height: 33px;
- 
 }
 
 .speedBtn{
@@ -39,34 +48,47 @@ p{
     margin-right: 0.1rem;
 }
 
+.eventsContainer {
+    background-color: #faebd7;
+    border-color: 1px solid grey;
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    
+}
 
-@media (min-width: 640px) {
+.cardContainer {
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;  
+    grid-template-areas: "cardtitle  cardtitle cardtitle" "cardbody  cardbody cardbody" "cardaction  cardaction cardaction" 
+}
+
+
+@media (min-width: 600px) {
    .borderForFlex{
      margin-top: 13vh;
    }
+
 }
+
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.clockContainer {
-    display: flex;
-    justify-content: space-around;
-    margin: 10px;
-}
+
 .buttons {
     display: flex;
 }
-.events-container {
-    max-height: 180px;
-}
-.cardContainer {
-    height: 120px;
-    width: 150px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "cardtitle  cardtitle cardtitle" "cardbody  cardbody cardbody" "cardaction  cardaction cardaction" 
-}
+
 
 .cardContainer, .cardContainerError {
     background-color: #fff;
@@ -77,22 +99,29 @@ code {
     box-shadow: 1px 1px 3px #90ee90;
     grid-template-rows: 1fr 1fr 1fr;
 }
+
+
 .cardContainerError {
     min-height: 300px;
     min-width: 500px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: "cardtitle  cardtitle cardtitle" "cardbody  cardbody cardbody" "cardbody  cardbody cardbody" "cardaction  cardaction cardaction"}
+    
 .cardtitle {
     grid-area: cardtitle;
     font-weight: 700;
+    color: black;
+    font-size: 18px;
 }
 .cardbody, .cardtitle {
     justify-self: center;
     align-items: center;
+    color: black;
 }
 .cardbody {
     grid-area: cardbody;
-    font-size: 22px;
+    font-size: 18px;
+    color: black;
 }
 .cardaction {
     grid-area: cardaction;
@@ -113,13 +142,6 @@ code {
     grid-template-areas: "cardtitle  cardtitle cardtitle" "cardbody  cardbody cardbody" "cardaction  cardaction cardaction"
 }
 
-.events-container {
-    height: 300px;
-    background-color: #faebd7;
-    border: 1px solid grey;
-    padding: 20px;
-    display: flex;
-}
 .ask-bid-container {
     display: flex;
     justify-content: space-between;

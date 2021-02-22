@@ -57,7 +57,7 @@ a:hover{
   color: black; 
   background-color: rgb(31, 185, 4);
   text-align: center;
-
+  z-index: 1;
 }
 
 ul {
