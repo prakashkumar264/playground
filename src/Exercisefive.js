@@ -26,7 +26,7 @@ function Exercisefive()  {
 
             {/* Grid Start Here */}
               <h4>Events</h4>
-             
+          
               <div className="eventsContainer">
                
                    <div className="cardContainer">
@@ -72,12 +72,113 @@ function Exercisefive()  {
                    
               </div>
 
-
-           
-            
-
             {/* Order Book Start Here */}
                <h4>Order Book</h4>
+
+            <div className="tablesContainer">
+                <div className="tableContainer">
+                        <p>Bids</p>
+                          <table className="bidsAsksTableStyle">
+                            <tr>
+                              <th>Age</th>
+                              <th>Exchange</th> 
+                              <th>Shares</th>
+                              <th>Price</th>
+                            </tr>
+                            <tr>
+                              <td>1.2</td>
+                              <td>Q</td>
+                              <td>400</td>
+                              <td>142.76</td>
+                            </tr>
+                            <tr>
+                              <td>1.2</td>
+                              <td>Q</td>
+                              <td>400</td>
+                              <td>142.76</td>
+                            </tr>
+                            <tr>
+                              <td>1.2</td>
+                              <td>Q</td>
+                              <td>400</td>
+                              <td>142.76</td>
+                            </tr>
+                            <tr>
+                              <td>1.2</td>
+                              <td>Q</td>
+                              <td>400</td>
+                              <td>142.76</td>
+                            </tr>
+                            <tr>
+                              <td>1.2</td>
+                              <td>Q</td>
+                              <td>400</td>
+                              <td>142.76</td>
+                            </tr>
+                          </table>
+                  </div>
+                <div className="tableContainer">
+                        <p>Asks</p>
+                        <table className="bidsAsksTableStyle">
+                            <tr>
+                              <th>Price</th>
+                              <th>Shares</th>
+                              <th>Exchange</th> 
+                              <th>Age</th>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            
+
+                          </table>
+                </div>
+            </div>
 
         </div>
       );

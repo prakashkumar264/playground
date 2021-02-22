@@ -54,14 +54,12 @@ h4{
 
 .eventsContainer {
     background-color: #faebd7;
-    border-color: 1px solid grey;
-    padding: 10px;
+    border: 1px solid black;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     padding: 0;
     margin: 0;
-    
 }
 
 .cardContainer {
@@ -75,6 +73,26 @@ h4{
     grid-template-areas: "cardtitle  cardtitle cardtitle" "cardbody  cardbody cardbody" "cardaction  cardaction cardaction" 
 }
 
+.tablesContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.tableContainer{
+    padding: 5px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+}
+
+.bidsAsksTableStyle{
+    color: black;
+}
+
 @media (min-width: 600px) {
    .borderForFlex{
      margin-top: 13vh;
@@ -86,8 +104,6 @@ h4{
 }
 
 @media (min-width: 1200px) {
-
-
     .stockBackground{
      margin-top: 15vh;
     }
