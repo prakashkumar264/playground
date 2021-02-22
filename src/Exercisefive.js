@@ -79,18 +79,15 @@ function Exercisefive()  {
                 <div className="tableContainer">
                         <p>Bids</p>
                           <table className="bidsAsksTableStyle">
-                            <tr>
-                              <th>Age</th>
-                              <th>Exchange</th> 
-                              <th>Shares</th>
-                              <th>Price</th>
-                            </tr>
-                            <tr>
-                              <td>1.2</td>
-                              <td>Q</td>
-                              <td>400</td>
-                              <td>142.76</td>
-                            </tr>
+                            <thead>
+                                <tr>
+                                  <th>Age</th>
+                                  <th>Exchange</th> 
+                                  <th>Shares</th>
+                                  <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                             <tr>
                               <td>1.2</td>
                               <td>Q</td>
@@ -115,23 +112,27 @@ function Exercisefive()  {
                               <td>400</td>
                               <td>142.76</td>
                             </tr>
+                            <tr>
+                              <td>1.2</td>
+                              <td>Q</td>
+                              <td>400</td>
+                              <td>142.76</td>
+                            </tr>
+                            </tbody>
                           </table>
                   </div>
                 <div className="tableContainer">
                         <p>Asks</p>
                         <table className="bidsAsksTableStyle">
-                            <tr>
-                              <th>Price</th>
-                              <th>Shares</th>
-                              <th>Exchange</th> 
-                              <th>Age</th>
-                            </tr>
-                            <tr>
-                              <td>143.13</td>
-                              <td>400</td>
-                              <td>Q</td>
-                              <td>1.2</td>
-                            </tr>
+                            <thead>
+                              <tr>
+                                <th>Price</th>
+                                <th>Shares</th>
+                                <th>Exchange</th> 
+                                <th>Age</th>
+                              </tr>
+                            </thead>
+                            <tbody>
                             <tr>
                               <td>143.13</td>
                               <td>400</td>
@@ -174,6 +175,13 @@ function Exercisefive()  {
                               <td>Q</td>
                               <td>1.2</td>
                             </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            </tbody>
                             
 
                           </table>

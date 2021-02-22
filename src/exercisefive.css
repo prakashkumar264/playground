@@ -87,10 +87,34 @@ h4{
     margin-top: 10px;
     color: white;
     text-align: center;
+
 }
 
 .bidsAsksTableStyle{
     color: black;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 15px;
+}
+
+th{
+    background-color:rgb(226, 166, 0);
+}
+
+td,th{
+    border:1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+td{
+    width: 10px;
+}
+
+tr:hover {
+  background-color: #554e4e50;
+  color: #000000;
 }
 
 @media (min-width: 600px) {
@@ -101,12 +125,22 @@ h4{
    .stockBackground{
     margin-top: 25vh;
    }
+
+   .bidsAsksTableStyle{
+    width: 400px;
+}
+  
 }
 
 @media (min-width: 1200px) {
     .stockBackground{
      margin-top: 15vh;
     }
+    
+    .bidsAsksTableStyle{
+        width: 500px;
+    }
+    
  }
 
  
