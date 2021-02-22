@@ -78,7 +78,9 @@ function Exercisefive()  {
             <div className="tablesContainer">
                 <div className="tableContainer">
                         <p>Bids</p>
-                          <table className="bidsAsksTableStyle">
+                        
+                        <div className="tableScroll">
+                        <table className="bidsAsksTableStyle">
                             <thead>
                                 <tr>
                                   <th>Age</th>
@@ -120,9 +122,11 @@ function Exercisefive()  {
                             </tr>
                             </tbody>
                           </table>
+                        </div>
                   </div>
                 <div className="tableContainer">
                         <p>Asks</p>
+                        <div className="tableScroll">
                         <table className="bidsAsksTableStyle">
                             <thead>
                               <tr>
@@ -181,12 +185,51 @@ function Exercisefive()  {
                               <td>Q</td>
                               <td>1.2</td>
                             </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
+                            <tr>
+                              <td>143.13</td>
+                              <td>400</td>
+                              <td>Q</td>
+                              <td>1.2</td>
+                            </tr>
                             </tbody>
                             
 
                           </table>
+                          </div>
                 </div>
             </div>
+
+            <br /><br /><br /><br />
 
         </div>
       );

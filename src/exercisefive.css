@@ -117,6 +117,17 @@ tr:hover {
   color: #000000;
 }
 
+.tableScroll{
+    overflow-y:visible;
+    overflow-x: hidden;
+    height: 300px;
+}
+
+.tableScroll thead th {
+    position: sticky;
+    top: 0;
+  }
+
 @media (min-width: 600px) {
    .borderForFlex{
      margin-top: 13vh;
