@@ -63,6 +63,13 @@ h4{
 }
 
 .cardContainer {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .0625);
+    display: grid;
+    padding: 10px;
+    opacity: .9;
+    box-shadow: 1px 1px 3px #90ee90;
+    grid-template-rows: 1fr 1fr 1fr;
     width: 150px;
     height: 150px;
     margin-top: 10px;
@@ -154,23 +161,8 @@ tr:hover {
     
  }
 
- 
-.cardContainer, .cardContainerError {
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, .0625);
-    display: grid;
-    padding: 10px;
-    opacity: .9;
-    box-shadow: 1px 1px 3px #90ee90;
-    grid-template-rows: 1fr 1fr 1fr;
-}
 
-.cardContainerError {
-    min-height: 300px;
-    min-width: 500px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: "cardtitle  cardtitle cardtitle" "cardbody  cardbody cardbody" "cardbody  cardbody cardbody" "cardaction  cardaction cardaction"}
-    
+
 .cardtitle {
     grid-area: cardtitle;
     font-weight: 700;
@@ -191,22 +183,4 @@ tr:hover {
     grid-area: cardaction;
     justify-self: center;
     align-items: center;
-}
-.cardMediumContainer {
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, .0625);
-    display: grid;
-    padding: 10px;
-    opacity: .9;
-    min-height: 200px;
-    min-width: 400px;
-    box-shadow: 1px 1px 3px #90ee90;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: "cardtitle  cardtitle cardtitle" "cardbody  cardbody cardbody" "cardaction  cardaction cardaction"
-}
-
-.ask-bid-container {
-    display: flex;
-    justify-content: space-between;
 }
