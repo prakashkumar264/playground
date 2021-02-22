@@ -1,0 +1,126 @@
+.stockBackground{
+    border:  solid white;
+    width: 95vw;
+    margin: auto;
+    margin-top: 40vh;
+    background-color: white;
+    text-align: center;
+}
+
+p{
+    color: black;
+}
+
+.counterBtn{
+    color: white;
+    background-color: #3f51b5;
+    border-radius: 4px;
+    border-color:none;
+    border-image: none;
+    border-width: 0em;
+    border-style: none;
+    height: 20px;
+    min-width: 65px;
+    min-height: 33px;
+ 
+}
+
+.speedBtn{
+    color: white;
+    background-color: #f50057;
+    border-radius: 4px;
+    border-color:none;
+    border-image: none;
+    border-width: 0em;
+    border-style: none;
+    height: 20px;
+    min-width: 65px;
+    min-height: 33px;
+    margin-right: 0.1rem;
+}
+
+
+@media (min-width: 640px) {
+   .borderForFlex{
+     margin-top: 13vh;
+   }
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.clockContainer {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+.buttons {
+    display: flex;
+}
+.events-container {
+    max-height: 180px;
+}
+.cardContainer {
+    height: 120px;
+    width: 150px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "cardtitle  cardtitle cardtitle" "cardbody  cardbody cardbody" "cardaction  cardaction cardaction" 
+}
+
+.cardContainer, .cardContainerError {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .0625);
+    display: grid;
+    padding: 10px;
+    opacity: .9;
+    box-shadow: 1px 1px 3px #90ee90;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.cardContainerError {
+    min-height: 300px;
+    min-width: 500px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "cardtitle  cardtitle cardtitle" "cardbody  cardbody cardbody" "cardbody  cardbody cardbody" "cardaction  cardaction cardaction"}
+.cardtitle {
+    grid-area: cardtitle;
+    font-weight: 700;
+}
+.cardbody, .cardtitle {
+    justify-self: center;
+    align-items: center;
+}
+.cardbody {
+    grid-area: cardbody;
+    font-size: 22px;
+}
+.cardaction {
+    grid-area: cardaction;
+    justify-self: center;
+    align-items: center;
+}
+.cardMediumContainer {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .0625);
+    display: grid;
+    padding: 10px;
+    opacity: .9;
+    min-height: 200px;
+    min-width: 400px;
+    box-shadow: 1px 1px 3px #90ee90;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "cardtitle  cardtitle cardtitle" "cardbody  cardbody cardbody" "cardaction  cardaction cardaction"
+}
+
+.events-container {
+    height: 300px;
+    background-color: #faebd7;
+    border: 1px solid grey;
+    padding: 20px;
+    display: flex;
+}
+.ask-bid-container {
+    display: flex;
+    justify-content: space-between;
+}
