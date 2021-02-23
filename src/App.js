@@ -77,15 +77,228 @@ function App() {
   const arrowDemo = (...args) =>  args[0] * args[1] / .1 ;
   console.log(arrowDemo(2, Math.PI), '<- Arrow data'); */
 
-  const locateCharacter = (...args) =>  ;
-  console.log(locateCharacter(), 'location');
+  // const locateCharacter = (...args) =>  ;
+  // console.log(locateCharacter(), 'location');
 
+  // let a =5;
+
+  // function palin(...args){
+  //   let dyn="https://google.com/"+args[0]+"/test/"+args[1]+"/demo.asp"
+  //   return dyn;
+  // }
+
+  // console.log(palin('args1','args2'));
+
+  //  function encodeURI(args){
+  //    let encodedURI = encodeURIComponent(args);
+  //    return encodeURI;
+  //  }
+
+  //  console.log(encodeURI('https://google.com'));
+
+    // function checkType(args){
+    //   return typeof args;
+    // }
+
+
+    // console.log(checkType("hello"));
+    // console.log(checkType(5));
+    // console.log(checkType(["prakash", "kumar"]));
+    // console.log(checkType({isAdded:true}));
+    // console.log(checkType(true));
+    // console.log(checkType(function test(){}));
+    // console.log(checkType(undefined));
+
+    // console.log(Array.isArray(["prakash", "kumar"]), 'array');
+
+    // function bodmas(...args){
+    //   return (args[0]+args[1])*args[2]/args[3];
+    // }
+
+    // console.log(bodmas(2,2,3,2));
+
+    // function divisibleByFive(args){
+    //     return args%5 === 0 ? true : args%5
+    // }
+    // console.log(divisibleByFive(10));
+
+    // function argumentComparer(...args){
+    //    return args[0]>args[1] ? 'args1 is greater than args2' : 'args2 is greater than args1'
+    // }
+
+    // console.log(argumentComparer(-2,5));
+    // console.log(argumentComparer(5,2));
+
+    // function logicalOperatorChecker(...args){
+    //   return typeof(args[0]) === 'string' && Array.isArray(args[1])  ?   !args[2]   : false;
+    // }
+
+    // console.log(logicalOperatorChecker('a',['5'], false));
+
+
+  // function charLengthChecker(args){
+  //   if(typeof(args) !== 'string'){
+  //     return "Invalid input"
+  //   }else if(args.length > 2 && args.length <= 30){
+  //     return "Not enough Character"
+  //   }
+  //   return args.length < 2 ? "Not enough Characters" : "Too much characters"  
+  // }
+
+  // console.log(charLengthChecker("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"))
+
+  // function printNumbers(){
+  //       for(let i=0; i<10; i++){
+  //         console.log(`${i}`);
+  //       }
+  // }
+
+  // console.log(printNumbers());
+
+  // function printCharacters(args){
+  //   for(let i=0; i<args.length; i++){
+  //     console.log(args.charAt(i));
+  //   }
+  // }
+  // console.log(printCharacters("Bootcamp"));
+
+  // function printCharacterCodeSum(args){
+  //   var count = 0;
+  //   for(let i=0; i<args.length; i++){   
+  //     console.log(args.charCodeAt(i), count);
+  //      count += args.charCodeAt(i);
+  //   }
+  //   return count;
+  // }
+  // console.log(printCharacterCodeSum("Boot camp"));
+
+  // function printCharactersReverse(args){
+  //   for(let i=args.length -1; i>=0; i--){
+  //     console.log(args.charAt(i));
+  //   }
+  // }
+  // console.log(printCharactersReverse("Boot camp"));
+
+  // function reverseString(args){
+  //     var temp ="";
+  //     for(let i=args.length -1; i>=0; i--){
+  //            temp += args[i];
+  //      }
+  //      return temp;
+  // }
+  // console.log(reverseString("Bootcamp"));
+
+  //  function reverseString(args){
+  //     var temp ="";
+  //     for(let i=args.length-1; i>=0; i--){
+  //            temp += args[i];
+  //      }
+  //      return temp.toLowerCase() === args.toLowerCase()
+  //   }
+  //   console.log(reverseString("bootcamp"));
+
+    // function reverseString(args){
+    //   var temp ="";
+    //   let i = args.length-1;
+    //   while( i>=0){
+    //          temp += args[i];
+    //          i--;
+    //    }
+    //    return temp.toLowerCase() === args.toLowerCase()
+    // }
+    // console.log(reverseString("bootcamp"));
+
+  
+
+    //  function fizzBuzz(){
+    //   var start = new Date().getTime();
+    //    for(let i=1;i<101;i++){
+    //     if( i%15 === 0){
+    //       console.log("FizzBuzz")
+    //     }else if(i%3===0){
+    //       console.log("Fizz");
+    //     }else if(i%5===0){
+    //       console.log("Buzz");
+    //     }else{
+    //       console.log(i)
+    //     }
+    //    }
+    //    var end = new Date().getTime();
+    //    var time = end - start;
+    //     var execs = 1000 / time;
+    
+    //      console.log('time in ms: '+time);
+    //      console.log('operations per second: '+execs);
+ 
+    //  }
+
+    //  console.log(fizzBuzz());
+
+
+    //  function fizzBuzz2(){
+    //   var start = new Date().getTime();
+    //    for(let i =1;i<101;i++){
+    //      var fizz = i%3 ===0;
+    //      var buzz = i%5 ===0;
+    //      console.log(fizz ? buzz ? "FizzBuzz" : "Fizz" : buzz ? "Buzz" : i);
+    //    }
+    //    var end = new Date().getTime();
+    //    var time = end - start;
+    //    var execs = 1000 / time;
+   
+    //     console.log('t in ms: '+time);
+    //     console.log('op per second: '+execs);
+
+    //  }
+
+
+
+  // function removeEmptySpaces(args){
+  //     return args.trim();
+  // }
+
+  // console.log(removeEmptySpaces("   a    "));
+
+
+  // function conactWords(...args){
+  //   return `${args[0]}${args[1]}`;
+  // }
+
+  // function restFinder(args){
+  //     return args.replaceAll("Rest", "REST");
+  //   }
+
+  //   console.log(restFinder(`Required Skills (there are 9 but we also put them in the order of what the hiring manager mentioned.
+
+  //     Significant professional experience with ReactJS with Redux
+      
+  //     Significant professional experience with HTML5, Java script/jQuery, CSS
+      
+  //     Professional experience coding unit tests and/or Test Driven Development (TDD) 
+      
+  //     Good UI design / UX skills
+      
+  //     Experience working with Rest APIs
+      
+  //     Professional experience working on agile development teams
+      
+  //     Working knowledge of Git (GitHub or GitLab)
+      
+  //     Proficiency in object-oriented design and programming
+      
+  //     Excellent communication and collaboration skills
+      
+  //      Note:  The top 4 should definitely be in the ‘Relevant Experience of the resume’`));
+
+
+      
+  
   return (
     <div className="App">
       <header className="App-header">
 
        
-       <p class="makeinbold" >Prakash Kumar</p>
+       <p className="makeinbold" >Prakash Kumar</p>
        
 
       </header>
