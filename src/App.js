@@ -3,7 +3,9 @@ import './App.css';
 
 const myObject = {};
 
-function App() {
+let myVar = 5;
+
+function App() { 
 
  /*  const myString="prakash";
   const myNumber= 19;
@@ -347,10 +349,129 @@ function App() {
     // captializeWord("i can code all night long");
 
 
-    function regexAlphabets(args){
 
-    } 
+    // function one(){
+    //   const regex1 = /(aws)/gmi;
+    //   const regex2 = /(azure)/gmi;
+    //   const regex3 = /(gcp)/gmi
+
+    //   const str = `http://qa-aws01pub.mockery.com/2017/11/16/federal-reserve-president-says-country-needs-more-immigration-to-save-economy.html%22`;
+
+    //   if(regex1.test(str)){
+    //     console.log("AWS");
+    //   }else if(regex2.test(str)){
+    //     console.log("Azure");
+    //   }
+    //   else{
+    //     console.log("GCP")
+    //   }
+
+    // }
+
     
+    // function two(){
+    //     const str = `http://qa-aws01pub.mockery.com/2017/11/16/federal-reserve-president-says-country-2020-needs-more-immigration-to-save-economy.html%22`;
+    //      let regex = /\/\d\d\d\d\//gmi;
+    //      let regexFound = str.replace(regex, (match) => {
+    //        return `/Year${match.substring(1,5)}/`;
+    //      })
+    //      console.log(regexFound);
+    // }
+
+    // two();
+
+
+    // function three(){
+    //    var str = "I will work hard till I get a job";
+    //    var regex = /(l+)/gmi;
+    //    console.log(regex.exec(str));
+    //    console.log(regex.test(str));
+    //    console.log(str.match(regex));
+    //    console.log(str.search(regex));
+    // }
+
+    // three();
+
+    // function slice(){
+    //   var str= "I will work hard till I get a job";
+    //   console.log(str.slice(1,-1).trim());
+
+    // }
+    // slice();
+
+
+    // function tdeletion(){
+    //   var str = `Bootcamp`;
+    //   var index = str.search('t');
+    //   console.log(str.slice(0,index+1));
+    // }
+
+    // tdeletion();
+
+    // function charCodeDiff(){
+    //   var str =`bootcamp`;
+    //   var regex =/[a-zA-Z]\\1+/gmi;
+    //   var temp = str.match(regex);
+    //   console.log(temp);
+    // }
+
+    // charCodeDiff();
+
+    // function indexdiff(){
+    //   var  str = 'boOcamp'
+    //   var index = str.search(/[A-Z]/);
+    //   console.log(str.length-1-index-index);
+    // }
+
+    // indexdiff();
+
+
+    //  function convertString(args){
+    //    console.log(parseFloat(args).toFixed(2));
+    //  }
+
+    //  convertString("20.3456");
+
+      //  function randomGenerator(){
+      //     console.log(Math.round(Math.random() * (19000 - 555) + 555));
+      //  }
+
+      //  randomGenerator();
+   
+
+      //  function timeDiff(args){
+      //    var x = Math.abs(args-Date.now());
+      //    var len = Math.ceil(Math.log10(x + 1));
+      //    console.log(Math.floor(x / Math.pow(10,len-3)));
+      //  }
+      //  timeDiff(10);
+
+
+      //  function maxmin(args){
+      //      var numArr = [];
+      //      while(args>0){
+      //        numArr.push(args%10);
+      //        args = parseInt(args/10);
+      //      }
+      //      console.log(Math.max(...numArr), 'Max');
+      //      console.log(Math.min(...numArr), 'Min');
+      //  }
+      //  maxmin(4173281);
+
+      //  function numberPlay(args1,args2){
+      //     var date =new Date()
+      //     var max = args1 >= args2 ? args1 : args2
+      //     var min = args1 < args2 ? args1 : args2
+      //     console.log(Math.round((min/max)*date.getDate()));
+      //  }
+      //  numberPlay(1,8);
+
+      function structuring(){
+
+      }
+
+      structuring();
+
 
   return (
     <div className="App">
