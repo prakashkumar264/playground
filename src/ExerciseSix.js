@@ -1,4 +1,4 @@
-
+import './ExerciseSix.css'
 import React  from 'react'
 
 
@@ -57,11 +57,25 @@ function Exercisefour() {
     captializeWord("i can code all night long");
 
 
+    function regexWordConcat(args){  
+      var reg = '' ;
+      var stringArr = args.split(" ");
+      for(let i=0;i<stringArr.length;i++){
+        var temp = stringArr[i].match(`([a-zA-Z])\\1+`)
+          if( temp !== null){
+            reg = reg.concat(temp[0]);
+          }
+      }
+      console.log(reg);
+    }
+    regexWordConcat("Three girls went to forest .Monkey said yee yaaaaaw");
 
-    
+
+  
       return (
-        <div  >
-
+        <div  className="bodyExerciseSix">
+        
+     
             
   
         </div>
