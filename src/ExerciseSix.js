@@ -2,7 +2,7 @@ import './ExerciseSix.css'
 import React  from 'react'
 
 
-function Exercisefour() {
+function ExerciseSix() {
 
 
 
@@ -83,4 +83,4 @@ function Exercisefour() {
     }
   
    
-export default Exercisefour;
+export default ExerciseSix;
