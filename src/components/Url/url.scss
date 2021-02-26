@@ -1,0 +1,28 @@
+.urlcontainer{
+    margin:10px;
+    padding:10px;
+    background-image: linear-gradient(to left, red , yellow);
+    border-radius: 10px;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+a:hover{
+    font-size: 2rem;
+    color:blue;
+}
+
+.newstyle a:link{
+    display: inline;
+    background-color: brown;
+}
+
+.newstyle a:hover{
+    display: inline;
+    background-color: pink;
+}
