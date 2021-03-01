@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment, useEffect, useState} from 'react'
 import './App.css';
 import './beststyles.scss'
 import data from './Student_Data.json'
@@ -13,22 +13,48 @@ const uuidData = data.map(i=>{
     }
 })
 
-
-console.log(uuidData, "uuidData")
-
 function App() { 
 
-  const[fav,setFav] = useState(["No Fav companies"])
+
+
+  const[fav,setFav] = useState([])
+  const[data,setData] = useState([])
+
+  function removeAllFav(){
+    return setFav([])
+  }
+
+  function getFavs(){
+    let empData=  uuidData.filter(i=>{
+        return fav.includes(i.Id) 
+      })
+    let returnEmployerName = empData.map(i=>i.Employer)
+    return returnEmployerName.join(",")
+  }
   
 
-    
+  function deleteRecord(Id){
+    // console.log(uuidData.length)
+    // uuidData.splice(uuidData.findIndex(i => i.Id === Id), 1)
+    // console.log(uuidData.length)
 
-     const univName =uuidData.map(i=>{
+   let remData=  data.filter((i)=>{
+      return i.Id !== Id
+    })
+    setData(remData)
+
+  }
+
+
+  
+  useEffect(()=>{
+    setData(uuidData)
+  },[])
+
+     const univName =data.map(i=>{
        const{Employer, Career_Url, Job_Title, Id} = i
        return(
 
-
-      
         <Card 
 
           Career_Url={Career_Url}
@@ -37,6 +63,8 @@ function App() {
           key={Id}
           setFav={setFav}
           fav={fav}
+          Id={Id}
+          deleteRecord={deleteRecord}
         />
        )
      }
@@ -45,11 +73,21 @@ function App() {
 
   return (
          
- 
+    
     <div>
      Here are your fav companies
+     {data.length}
     <div>
-    {fav.join("----")}
+      <button onClick={()=>removeAllFav()}>Remove All Fav</button>
+
+      <div className='outer'>
+        <div className='middle'>
+          <div className='inner'>
+
+          </div>
+        </div>
+      </div>
+    {getFavs()}
     </div>
    
     <div>

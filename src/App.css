@@ -41,3 +41,17 @@
   font-size: x-large;
   color: red
 }
+
+
+.outer{
+  background-color: blue;
+}
+
+.middle{
+  background-color: orange;
+
+}
+
+.inner{
+  background-color: yellow;
+}
