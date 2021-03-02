@@ -8,6 +8,7 @@ import { func } from 'prop-types';
 import Form from './components/Form/Form'
 import {Link} from "react-router-dom";
 import {BrowserRouter, Route} from "react-router-dom";
+import Lottery from './components/Lottery/Lottery'
 
 const uuidData = data.map(i=>{
     return{
@@ -123,7 +124,12 @@ function App() {
      {data.length}
               
   
-      
+      <BrowserRouter>
+       <Link to="/Lottery">
+
+       </Link>
+       <Route component={Lottery} />
+      </BrowserRouter>
     <div>
       <div> {`Total Record Delete:::  ${data.length}`}</div>
      <div>  {`Record Deleted:::  ${deletedRecords.length}`}</div>
