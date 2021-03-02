@@ -97,6 +97,7 @@ function App() {
        const{Employer, Career_Url, Job_Title, Id} = i
        return(
 
+        
         <Card 
 
           Career_Url={Career_Url}
@@ -115,11 +116,14 @@ function App() {
      )
 
   return (
-         
+
     
     <div>
      Here are your fav companies
      {data.length}
+              
+  
+      
     <div>
       <div> {`Total Record Delete:::  ${data.length}`}</div>
      <div>  {`Record Deleted:::  ${deletedRecords.length}`}</div>
