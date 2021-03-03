@@ -12,6 +12,7 @@ import Exercisefour from "./Exercisefour"
 import Exercisefive from "./Exercisefive"
 import ExerciseSix from "./ExerciseSix"
 import ExerciseSeven from "./ExerciseSeven"
+import Lottery from "./components/Lottery/Lottery"
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
            <li><Link to="/Exercisefive">Excercise Five</Link></li>
            <li><Link to="/ExerciseSix">Excercise Six</Link></li>
            <li><Link to="/ExerciseSeven">Excercise Seven</Link></li>
+           <li><Link to="/Lottery">Excercise Seven</Link></li>
           </ul>
         </div>
      
@@ -43,6 +45,8 @@ function App() {
          <Route path="/Exercisefive" component={Exercisefive}/>
          <Route path="/ExerciseSix" component={ExerciseSix}/>
          <Route path="/ExerciseSeven" component={ExerciseSeven}/>
+         <Route path="/ExerciseSeven" component={ExerciseSeven}/>
+         <Route path="/Lottery" component={Lottery}/>
  
        </Router>
 
