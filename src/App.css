@@ -55,3 +55,7 @@
 .inner{
   background-color: yellow;
 }
+
+.cardDiv:hover{
+  background-color:grey
+}

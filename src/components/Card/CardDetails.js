@@ -4,7 +4,9 @@ import Url from '../Url/url'
 import PropTypes from 'prop-types'
 
 
-function Card({Employer, Career_Url, Job_Title, setFav,fav, Id, deleteRecord}){
+function CardDetails({Employer, Career_Url, Job_Title, setFav,fav, Id, 
+    Start_Date,Specialization,University_Name,
+    deleteRecord}){
 
     const [currentFav,setCurrentFav] =useState('');
 
@@ -47,7 +49,7 @@ function Card({Employer, Career_Url, Job_Title, setFav,fav, Id, deleteRecord}){
   
                 <div> 
                 <Url
-                    Career_Url={Career_Url}
+                    // Career_Url={Career_Url}
                     mystyle="mystyle"
                 >
                 Click Here
@@ -56,21 +58,17 @@ function Card({Employer, Career_Url, Job_Title, setFav,fav, Id, deleteRecord}){
                 </div>
                 <div>{Employer}</div>
                 <div>{Job_Title}</div>
-                     {currentFav}
-                <button onClick={(e) =>handleFavouriteClick(e,Id)}>Favourite</button>
-            {/* <button onClick={(e) =>handleFavObject({e:e,Employer:Employer})}>Favourite Object</button> */}
-                <button onClick={(e) => removeFav(e,Id)}> unFavourite</button>
-                <button onClick={() => deleteRecord(Id)}> Delete Record</button>
+                <div>{Start_Date}</div>
+                <div>{Specialization}</div>
+                <div>{University_Name}</div>
+               
+                    
+              
       </div>
 
     )
 }
 
-export default Card
+export default CardDetails
 
 
-Card.propTypes = {
-    Employer:PropTypes.string.isRequired,
-    Career_Url:PropTypes.string,
-    Job_Title:PropTypes.string
-}

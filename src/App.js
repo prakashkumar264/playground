@@ -6,9 +6,17 @@ import Card from './components/Card/Card'
 import  {v4 as uuidv4} from 'uuid'
 import { func } from 'prop-types';
 import Form from './components/Form/Form'
-import {Link} from "react-router-dom";
+import {Link, Redirect, useHistory} from "react-router-dom";
 import {BrowserRouter, Route} from "react-router-dom";
 import Lottery from './components/Lottery/Lottery'
+import { Button } from 'reactstrap';
+import ModalExample from './components/Modal/ModalExample'
+import CardDetails from './components/Card/CardDetails'
+import { Modal } from 'bootstrap';
+import { Input, FormGroup,Label,} from 'reactstrap';
+import Checkbox from '@material-ui/core/Checkbox';
+import { getByDisplayValue } from '@testing-library/react';
+
 
 const uuidData = data.map(i=>{
     return{
@@ -30,6 +38,16 @@ function App() {
   const[fav,setFav] = useState([])
   const[data,setData] = useState([])
   const[deletedRecords,setDeletedRecords] =useState([])
+  const[isModalOpen,setIsModalOpen]=useState([])
+  const[viewCurrentRecord,setViewCurrentRecord]=useState({})
+  const[searchText,setSearchText]=useState("")
+  const [searchInvoked,setSearchInvoked]=useState(false)
+  const [filteredData,setFilteredData]=useState([])
+  const [graduationYearFilter,setGraduationYearFilter]=useState({})
+  const [isSubmitDisabled,setIsSubmitDisabled] =useState(false)
+
+  const history= useHistory()
+
  
   function removeAllFav(){
     return setFav([])
@@ -57,7 +75,6 @@ function App() {
     setData(remainingRecord)
     }
 
-
   useEffect(()=>{
     setData(uuidData)
   },[])
@@ -70,27 +87,72 @@ function App() {
     console.log(data.length, 'After Retrive')
   }
 
-
+  function handleCardonClick(Id){
+    console.log('handleCardContainer Click invoked',Id);  
+    let entry =data.filter(i=>i.Id === Id)
+    console.log(entry,'filteredEntry');
+    setViewCurrentRecord(entry[0])
+    setIsModalOpen(true)
+    
+  
+   }
 
   function handleFormSubmit(){
-    let objReady ={
-        "Career_Url": careerUrl,
-        "Employer":  employeer,
-       "Graduation":  gradYear,
-        "StartYear":  startYear,
-       "Job_Title":  jobTitle,
-       "Specialization": specialization,
-       "University": universityName,
-        "Id":uuidv4()
+    console.log('handleFormSubmit invoked')
+    setIsSubmitDisabled(true)
+    setTimeout(()=>{
+        setIsSubmitDisabled(false)
+    },3000)
+
+    let objReady = {
+        Career_Url:careerUrl,
+        Employer:employeer,
+        Graduation_Year:gradYear,
+        Job_Start_Date:startYear,
+        Job_Title:jobTitle,
+        Specialization:specialization,
+        University_Name:universityName,
+        Id:uuidv4()
     }
-    let newData = [objReady,...data]
-    setData(newData)
-    
+let copyData = [objReady,...data]
+
+setData(copyData)
+}
 
 
+function handleGraduationDateOnChange(year){
 
-    document.getElementById('newRecordBtn').disabled = true;
-    setTimeout(function(){document.getElementById('newRecordBtn').disabled = false;},3000);
+  let copyObj= {...graduationYearFilter}
+  copyObj[year]=!copyObj[year]
+console.log(copyObj,'copyObj');
+setGraduationYearFilter(copyObj)
+
+}
+useEffect(()=>{
+  let getyears=filteredData.map(i=>i.Graduation_Year)
+  let unique = [...new Set(getyears)];
+
+  let obj={}
+unique.forEach(l=>{
+    obj[l]=true
+})
+setGraduationYearFilter(obj)
+  
+},[searchInvoked])
+
+function getGraduationYear(){
+
+return  Object.entries(graduationYearFilter).map(j=>{
+    return  <span style={{display:'inlineFlex'}}>
+   <label>{j[0]}</label>
+   <Checkbox
+      checked={j[1]}
+      onChange={()=>handleGraduationDateOnChange(j[0])}
+      inputProps={{ 'aria-label': 'primary checkbox' }}
+    />
+    </span>
+ })
+  
 }
 
 
@@ -98,9 +160,8 @@ function App() {
        const{Employer, Career_Url, Job_Title, Id} = i
        return(
 
-        
+        <div className='cardDiv' onClick={()=>handleCardonClick(Id)}>
         <Card 
-
           Career_Url={Career_Url}
           Employer={Employer}
           Job_Title={Job_Title}
@@ -111,10 +172,47 @@ function App() {
           deleteRecord={deleteRecord}
          
         />
+        </div>
        )
-     }
+     })
+     
+     function handleClear(){
+      setSearchText("")
+      setSearchInvoked(false)
+      }
+      function handleSearch () {
+          if(searchText.length ===0){
+              setSearchInvoked(false)
+          }
+          else {
+              setSearchInvoked(true)
+          }
+      
+          let copyData =[...data]
+              copyData = copyData.filter(i=>{
+              return i.Employer.toLowerCase().includes(searchText.toLowerCase())
+             }) 
+             console.log(copyData,'copyData');
+          if(setSearchInvoked){
+             setFilteredData(copyData)
+          }
+          
+      }
 
-     )
+
+     function filterLogic () {
+      if(searchInvoked){
+          // return filteredData
+         const filterByYear= filteredData.filter((i)=>{
+       const gradYear = i.Graduation_Year 
+      return graduationYearFilter[gradYear]
+         })
+         return filterByYear
+      }
+          return data
+      }
+
+
 
   return (
 
@@ -122,19 +220,34 @@ function App() {
     <div>
      Here are your fav companies
      {data.length}
-              
-  
+    
+     <div>
+        <input placeholder='Search your company' onChange={(e)=>setSearchText(e.target.value)}/>
+        <button onClick={()=>handleSearch()} color="primary">Search</button>
+     </div>
+     
+
+
       <BrowserRouter>
        <Link to="/Lottery">
-
+                Lottery
        </Link>
-       <Route component={Lottery} />
+       <Route path="/Lottery"  component={Lottery} />
       </BrowserRouter>
     <div>
       <div> {`Total Record Delete:::  ${data.length}`}</div>
      <div>  {`Record Deleted:::  ${deletedRecords.length}`}</div>
      <div>
-       <Form
+      <ModalExample
+       buttonLabel="Form"
+       buttonColor="danger"
+       title="Props Modal"
+       cta_primary="Submit"
+       cta_secondary="Cancel"
+       handleFormSubmit={handleFormSubmit}
+      >
+ 
+      <Form
 
         careerUrl={careerUrl}
         employeer={employeer}
@@ -150,9 +263,19 @@ function App() {
         setjobTitle={setjobTitle}
         setspecialization={setspecialization}
         setuniversityName={setuniversityName}
-        handleFormSubmit={handleFormSubmit}
-        />
         
+        />
+      </ModalExample>
+        
+
+        {/* <ModalExample
+          title="demo"
+          handleFormSubmit={handleFormSubmit}
+          isModalOpen={true}
+          setIsModalOpen={setIsModalOpen}
+        >
+          Test Modal
+        </ModalExample> */}
      </div>
     
       <button onClick={()=>retrieveDeleted()}>Retrieve Data</button>
@@ -169,7 +292,7 @@ function App() {
     </div>
    
     <div>
-    {univName}
+         {univName}
     </div>
 
     

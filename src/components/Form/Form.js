@@ -78,7 +78,7 @@ function Form({
                 {universityName}
             </div>
 
-           <button type='submit' id='newRecordBtn' disabled={handeforDisable()} onClick={()=>handleFormSubmit()}>Submit Data</button>
+           {/* <button type='submit' id='newRecordBtn' disabled={handeforDisable()} onClick={()=>handleFormSubmit()}>Submit Data</button> */}
            
            
           
