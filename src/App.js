@@ -34,7 +34,7 @@ function App() {
            <li><Link to="/Exercisefive">Excercise Five</Link></li>
            <li><Link to="/ExerciseSix">Excercise Six</Link></li>
            <li><Link to="/ExerciseSeven">Excercise Seven</Link></li>
-           <li><Link to="/Lottery">Excercise Seven</Link></li>
+           <li><Link to="/Lottery">Lottery</Link></li>
           </ul>
         </div>
      
