@@ -1,17 +1,21 @@
 
+
 import React, { Fragment, useEffect, useState } from 'react';
 import './Form.scss'
 import './beststyles.scss'
 import data from '../../Student_Data.json' ;
 import Card from '../Card/Card';
 import CardDetails from '../CardDetails/CardDetails';
+import Lottery from '../Lottery/Lottery';
 import { v4 as uuidv4 } from 'uuid';
 import Form from '../Form/Form';
 import { Link, Redirect, useHistory } from "react-router-dom";
-import ModalExample from '../Modal/Modal'
+import Modal from '../Modal/Modal'
 import { Button,Input, FormGroup,Label,} from 'reactstrap';
 import Checkbox from '@material-ui/core/Checkbox';
 import { getByDisplayValue } from '@testing-library/react';
+import axios from 'axios';
+
 
 
 let  uuidData = data.map(i=>{
@@ -41,7 +45,7 @@ return {
 // Life cycle methods 
 // Mounted , Updated , Unmounted 
 
-function Formhome() {
+function FormHome() {
 const [fav, setFav] =useState([])
 const [data, setData]=useState([])
 const [deletedRecords, setDeletedRecords]=useState([])
@@ -59,9 +63,23 @@ const [searchText,setSearchText]=useState("")
 const [searchInvoked,setSearchInvoked]=useState(false)
 const [filteredData,setFilteredData]=useState([])
 const [graduationYearFilter,setGraduationYearFilter]=useState({})
+const [currentPage,setCurrentPage]=useState(1)
+const [page, setPage] =useState([])
+const [entriesPerPage, setEntriesPerPage] = useState(25)
 
-console.log(graduationYearFilter,'graduationYearFilter');
+console.log(page,'page')
+console.log(page.length,'page.length')
+console.log(currentPage,'currentPage')
+console.log(page.length ==   currentPage-1)
 
+
+function getSliced(){
+    let copyData=[...data]
+    let returnData= copyData.slice((currentPage-1) * entriesPerPage,currentPage*entriesPerPage)
+    console.log((currentPage-1)*entriesPerPage,(currentPage)*entriesPerPage ,'SLICED ')
+    // console.log(returnData,'returnData')
+    return returnData
+}
 
 const history= useHistory()
 
@@ -70,6 +88,21 @@ let empData= uuidData.filter(i=>fav.includes(i.Id))
 let returnEmployerName = empData.map(i=>i.Employer)
 return returnEmployerName.join(",")
 }
+
+useEffect(()=>{
+  
+    let totalEntries = data && data.length
+    let wholePage= Math.ceil(totalEntries/entriesPerPage)
+   let arr=  Array(wholePage).fill(0)
+//    console.log(arr,'arr')
+   let pages=  arr.map((i,idx)=>{
+       return (idx+1)
+    })
+// console.log(pages,'pages');
+    setPage(pages)
+
+},[data,entriesPerPage])
+  
 
 function handleFormSubmit () {
     console.log('handleFormSubmit invoked')
@@ -94,6 +127,13 @@ setData(copyData)
     
 }
 
+function handleKeyPress (e) {
+console.log(e.onKeyDown,'e.keyCode')
+if(e.which == 13 || e.keyCode == 13){
+    handleSearch()
+}
+
+}
 function handleCardContainerOnClick (Id) {
 console.log('handleCardContainer Click invoked',Id);  
 let entry =data.filter(i=>i.Id === Id)
@@ -103,7 +143,8 @@ setIsModalOpen(true)
 
 }
 
-function deleteRecord (Id) {
+function deleteRecord (e,Id) {
+    e.stopPropagation()
 let deletedRecord= data.filter((i)=>i.Id ===Id)
 console.log(deletedRecord,'deletedRecord');
 
@@ -116,7 +157,7 @@ let remainingRecord= data.filter((i)=>{
     return i.Id !==Id 
    })   
 setData(remainingRecord)
-console.log(remainingRecord,'remainingRecord');
+// console.log(remainingRecord,'remainingRecord');
 }
 
 useEffect(()=>{
@@ -127,7 +168,7 @@ function handleGraduationDateOnChange(year){
 
     let copyObj= {...graduationYearFilter}
     copyObj[year]=!copyObj[year]
- console.log(copyObj,'copyObj');
+//  console.log(copyObj,'copyObj');
  setGraduationYearFilter(copyObj)
 
 }
@@ -165,7 +206,7 @@ setData(mergedRecords)
 setDeletedRecords([])
 }
 
-const univName =filterLogic().map((i,idx,arr)=>{
+const univName =getSliced().map((i,idx,arr)=>{
 const {Employer, Career_Url, Job_Title,Id,Graduation_Year} = i 
 
 return (
@@ -185,6 +226,20 @@ return (
     )
     
 })  
+function getData () {
+
+    axios.get('https://studentbe.herokuapp.com/allrecords')
+   .then(res=>console.log(res))
+   .catch(e=>console.log(e))
+   
+   }
+   
+   
+   useEffect(()=>{
+   getData()
+   
+   },[searchText])
+   
 function handleClear(){
 setSearchText("")
 setSearchInvoked(false)
@@ -225,15 +280,20 @@ return (
 
 <div className='container'>
    <div>
-
+{/* <Modal 
+buttonLabel="Open"
+title="Whats up Title"
+body={"I am body of the Modal"}
+/> */}
 <button onClick={()=>setFav([])}>Clear All Favorites</button>
 <button onClick={()=>history.push("/")}>Go Home </button>
 <button onClick={()=>handleRetrieveAllRecords()}>Retrieve All Records</button>
 <button onClick={()=>history.push(`/test?isSubmitDisabled=${isSubmitDisabled}`)}>Test</button>
        </div> 
-Here are your favorite companies 
+
+
 <div>
-<input placeholder='Search with Company name'  value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
+<input autoFocus placeholder='Search with Company name' onKeyPress={(e)=>handleKeyPress(e)} value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
 <span style={{marginLeft:'20px'}}><Button disabled={searchInvoked} onClick={()=>handleSearch()} color="primary">Search</Button></span>
 {searchInvoked && <span style={{marginLeft:'20px'}}>
      <Button onClick={()=>handleClear()} color="primary">Clear</Button>
@@ -245,6 +305,7 @@ Here are your favorite companies
 </div>
 <div>{`Total record :::${filterLogic().length}`}</div>
 <div>{`Total deleted record :::${deletedRecords.length}`}</div>
+
 {/* <Modal
 buttonLabel="Open"
 title="Please enter the form "
@@ -270,7 +331,7 @@ isSubmitDisabled={isSubmitDisabled}
 </Modal> */}
 
 
-<ModalExample
+<Modal
 buttonLabel="Open"
 title="Please enter the form "
 handleFormSubmit={handleFormSubmit}
@@ -278,7 +339,7 @@ isModalOpen={isModelOpen}
 setIsModalOpen={setIsModalOpen}
 >
 <CardDetails
-Employer={viewCurrentRecord.Employer}
+Employer={viewCurrentRecord.Employer}       
 careerUrl={viewCurrentRecord.Career_Url}
 Job_Title={viewCurrentRecord.Job_Title}
 Job_Start_Date={viewCurrentRecord.Job_Start_Date}
@@ -286,7 +347,7 @@ Specialization={viewCurrentRecord.Specialization}
 University_Name={viewCurrentRecord.University_Name}
 
 />
-</ModalExample>   
+</Modal>   
 
 
 <div>
@@ -295,6 +356,16 @@ University_Name={viewCurrentRecord.University_Name}
 </div>
 
 Here is list of companies 
+<div>
+<Button onClick={()=>setCurrentPage(currentPage-1)} disabled={page[0] === currentPage} color="primary">Previous </Button>   
+{page.map(i=>{
+   return  <span className={i !== currentPage ? `page` : `highlightedpage`} onClick={()=>setCurrentPage(i)}>{i}</span>
+})}
+<Button disabled={page.length === currentPage} onClick={()=>setCurrentPage(currentPage+1)} color="primary">Next</Button>
+{/* <label>Enter number of records per page </label> */}
+{/* <input onBlur={(e)=>setEntriesPerPage(e.target.value)} type='number' /> */}
+
+</div>
 <div>
 {univName}
 </div>
@@ -308,4 +379,4 @@ Here is list of companies
 
 }
 
-export default Formhome
+export default FormHome
