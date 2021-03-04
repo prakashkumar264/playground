@@ -1,5 +1,5 @@
 import React ,{useState} from 'react';
-import './form.scss';
+import './Form.scss';
 
 function Form({
     careerUrl,

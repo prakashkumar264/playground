@@ -1,5 +1,5 @@
 import React , {useState} from 'react';
-import './cardDetails.scss';
+import './CardDetails.scss';
 import Url from '../Url/Url';
 import PropTypes from 'prop-types'; // ES6
 

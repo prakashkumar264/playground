@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from 'prop-types'; // ES6
+
 
 const ModalExample = (props) => {
   const {
@@ -17,6 +18,7 @@ const ModalExample = (props) => {
     
   } = props;
 
+//   const [modal, setModal] = useState(false);
 
   const toggle = () => setIsModalOpen(!isModalOpen);
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './card.scss';
+import './Card.scss';
 import Url from '../Url/Url';
 import PropTypes from 'prop-types'; // ES6
 
