@@ -124,19 +124,8 @@ if(e.which == 13 || e.keyCode == 13){
 // setIsModalOpen(true)
 // }
 function handleCardContainerOnClick (Id) {
-   history.push(`/app/recorddetails/${Id}`)
+   history.push(`/recorddetails/${Id}`)
 }
-
-//click on container - route to new component 
-//new component 
-// push new route to stack 
-// new route app/recordetails -- New Component 
-// useHistory - /app/recorddetails?id='fdfd-fdd
-// New Compnet - useParams -- "fdfd-fdd"
-// useEffect ( make the backend end call and attacht to request )
-// back end with one record 
-//show it on screen using Card Component  
-
 
 
 function deleteRecord (e,Id) {
@@ -233,11 +222,11 @@ return (
     
 })  
 
-   
 function handleClear(){
 setSearchText("")
 setSearchInvoked(false)
 }
+
 function handleSearch () {
     if(searchText.length ===0){
         setSearchInvoked(false)
@@ -367,7 +356,6 @@ Here is list of companies
  
     
 </div>
-
 
 
 ) ;      

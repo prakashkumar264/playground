@@ -53,7 +53,7 @@ function App() {
          <Route path="/ExerciseSeven" component={ExerciseSeven}/>
          <Route path="/Lottery" component={Lottery}/>
          <Route path="/FormHome" component={FormHome}/>
-         <Route path="/recorddetails/:id" component={RecordDetails}/>
+         <Route path="/recorddetails/:Id" component={RecordDetails}/>
          <Route path="/CarouselPage" component={CarouselPage}/>
        </Router>
 

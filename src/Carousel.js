@@ -52,7 +52,7 @@ const CarouselPage = (props) => {
 
   return (
       <div>
-      <div style={{width:"25%",margin:"auto"}}>
+      <div style={{width:"25%",margin:"auto", height: "100vh"}}>
         <Carousel
             activeIndex={activeIndex}
             next={next}

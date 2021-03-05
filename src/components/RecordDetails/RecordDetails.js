@@ -41,13 +41,13 @@ useEffect(()=>{
      return (
         <div>
  <CardDetails 
- Employer={data.Employer} 
-careerUrl={data.Career_Url}
-Job_Title={data.Job_Title}
-Job_Start_Date={data.Job_Start_Date}
-Specialization={data.Specialization}
-University_Name={data.University_Name}  
- />
+        Employer={data.Employer} 
+        careerUrl={data.Career_Url}
+        Job_Title={data.Job_Title}
+        Job_Start_Date={data.Job_Start_Date}
+        Specialization={data.Specialization}
+        University_Name={data.University_Name}  
+/>
         </div>
     )
 }
