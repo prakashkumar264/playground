@@ -67,16 +67,12 @@ const [currentPage,setCurrentPage]=useState(1)
 const [page, setPage] =useState([])
 const [entriesPerPage, setEntriesPerPage] = useState(25)
 
-console.log(page,'page')
-console.log(page.length,'page.length')
-console.log(currentPage,'currentPage')
-console.log(page.length ==   currentPage-1)
 
 
 function getSliced(){
     let copyData=[...data]
     let returnData= copyData.slice((currentPage-1) * entriesPerPage,currentPage*entriesPerPage)
-    console.log((currentPage-1)*entriesPerPage,(currentPage)*entriesPerPage ,'SLICED ')
+   // console.log((currentPage-1)*entriesPerPage,(currentPage)*entriesPerPage ,'SLICED ')
     // console.log(returnData,'returnData')
     return returnData
 }
@@ -105,7 +101,7 @@ useEffect(()=>{
   
 
 function handleFormSubmit () {
-    console.log('handleFormSubmit invoked')
+   // console.log('handleFormSubmit invoked')
     setIsSubmitDisabled(true)
     setTimeout(()=>{
         setIsSubmitDisabled(false)
@@ -135,9 +131,9 @@ if(e.which == 13 || e.keyCode == 13){
 
 }
 function handleCardContainerOnClick (Id) {
-console.log('handleCardContainer Click invoked',Id);  
+// console.log('handleCardContainer Click invoked',Id);  
 let entry =data.filter(i=>i.Id === Id)
-console.log(entry,'filteredEntry');
+// console.log(entry,'filteredEntry');
 setViewCurrentRecord(entry[0])
 setIsModalOpen(true)
 
@@ -146,7 +142,7 @@ setIsModalOpen(true)
 function deleteRecord (e,Id) {
     e.stopPropagation()
 let deletedRecord= data.filter((i)=>i.Id ===Id)
-console.log(deletedRecord,'deletedRecord');
+// console.log(deletedRecord,'deletedRecord');
 
 let  copyDelRecords=[...deletedRecords]
 copyDelRecords.push(deletedRecord[0])
@@ -226,11 +222,13 @@ return (
     )
     
 })  
+
+
 function getData () {
 
-    axios.get('https://studentbe.herokuapp.com/allrecords')
-   .then(res=>console.log(res))
-   .catch(e=>console.log(e))
+axios.get('https://studentbe.herokuapp.com/allrecords')
+.then(res=>console.log(res))
+.catch(e=>console.log(e))
    
    }
    
