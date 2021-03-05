@@ -14,6 +14,8 @@ import ExerciseSix from "./ExerciseSix"
 import ExerciseSeven from "./ExerciseSeven"
 import Lottery from "./components/Lottery/Lottery"
 import FormHome from "./components/Form/FormHome"
+import RecordDetails from "./components/RecordDetails/RecordDetails"
+import CarouselPage from "./Carousel"
 
 
 function App() {
@@ -37,6 +39,7 @@ function App() {
            <li><Link to="/ExerciseSeven">Excercise Seven</Link></li>
            <li><Link to="/Lottery">Lottery</Link></li>
            <li><Link to="/FormHome">Student Data</Link></li>
+           <li><Link to="/CarouselPage">Carousel</Link></li>
           </ul>
         </div>
      
@@ -50,7 +53,8 @@ function App() {
          <Route path="/ExerciseSeven" component={ExerciseSeven}/>
          <Route path="/Lottery" component={Lottery}/>
          <Route path="/FormHome" component={FormHome}/>
- 
+         <Route path="/recorddetails/:id" component={RecordDetails}/>
+         <Route path="/CarouselPage" component={CarouselPage}/>
        </Router>
 
        </div>

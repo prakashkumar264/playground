@@ -3,7 +3,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import './Form.scss'
 import './beststyles.scss'
-import data from '../../Student_Data.json' ;
+// import data from '../../Student_Data.json' ;
 import Card from '../Card/Card';
 import CardDetails from '../CardDetails/CardDetails';
 import Lottery from '../Lottery/Lottery';
@@ -11,41 +11,16 @@ import { v4 as uuidv4 } from 'uuid';
 import Form from '../Form/Form';
 import { Link, Redirect, useHistory } from "react-router-dom";
 import Modal from '../Modal/Modal'
-import { Button,Input, FormGroup,Label,} from 'reactstrap';
+import { Button,Input, FormGroup,Label, Spinner,} from 'reactstrap';
 import Checkbox from '@material-ui/core/Checkbox';
 import { getByDisplayValue } from '@testing-library/react';
-import axios from 'axios';
+import axios from '../axios'
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 
 
-let  uuidData = data.map(i=>{
-return {
-    ...i, 
-    Id: uuidv4()
-}
-
-})
-
-
-// console.log(uuidData,'uuidData');
-// Career_Url: "https://ibegin.tcs.com/iBegin/jobs/search"
-// Employer: "TCS"
-// Graduation_Year: 2020
-// Job_Start_Date: "6/20/2020"
-// Job_Title: "Software Engineer"
-// Specialization: "Computer Science"
-// University_Name: "University of North Carolina at Charlotte"'
-// Id:2303333303303003
-
-//single source of truth 
-
-// Lifting the state 
-
-// Components
-// Life cycle methods 
-// Mounted , Updated , Unmounted 
-
-function FormHome() {
+function FormHome(props) {
 const [fav, setFav] =useState([])
 const [data, setData]=useState([])
 const [deletedRecords, setDeletedRecords]=useState([])
@@ -66,21 +41,21 @@ const [graduationYearFilter,setGraduationYearFilter]=useState({})
 const [currentPage,setCurrentPage]=useState(1)
 const [page, setPage] =useState([])
 const [entriesPerPage, setEntriesPerPage] = useState(25)
-
+const [isDataLoaded, setisDataLoaded] = useState(false)
 
 
 function getSliced(){
     let copyData=[...data]
     let returnData= copyData.slice((currentPage-1) * entriesPerPage,currentPage*entriesPerPage)
-   // console.log((currentPage-1)*entriesPerPage,(currentPage)*entriesPerPage ,'SLICED ')
-    // console.log(returnData,'returnData')
     return returnData
 }
+
+
 
 const history= useHistory()
 
 function getFavs() {
-let empData= uuidData.filter(i=>fav.includes(i.Id))
+let empData= data.filter(i=>fav.includes(i.Id))
 let returnEmployerName = empData.map(i=>i.Employer)
 return returnEmployerName.join(",")
 }
@@ -99,7 +74,6 @@ useEffect(()=>{
 
 },[data,entriesPerPage])
   
-
 function handleFormSubmit () {
    // console.log('handleFormSubmit invoked')
     setIsSubmitDisabled(true)
@@ -130,14 +104,14 @@ if(e.which == 13 || e.keyCode == 13){
 }
 
 }
-function handleCardContainerOnClick (Id) {
-// console.log('handleCardContainer Click invoked',Id);  
-let entry =data.filter(i=>i.Id === Id)
-// console.log(entry,'filteredEntry');
-setViewCurrentRecord(entry[0])
-setIsModalOpen(true)
+// function handleCardContainerOnClick (Id) {
+// // console.log('handleCardContainer Click invoked',Id);  
+// let entry =data.filter(i=>i.Id === Id)
+// // console.log(entry,'filteredEntry');
+// setViewCurrentRecord(entry[0])
+// setIsModalOpen(true)
 
-}
+// }
 
 function deleteRecord (e,Id) {
     e.stopPropagation()
@@ -153,12 +127,12 @@ let remainingRecord= data.filter((i)=>{
     return i.Id !==Id 
    })   
 setData(remainingRecord)
-// console.log(remainingRecord,'remainingRecord');
+
 }
 
-useEffect(()=>{
-setData(uuidData)
-},[])
+function handleCardContainerOnClick(Id){
+    history.push(`/recorddetails/?id=${Id}`)
+}
 
 function handleGraduationDateOnChange(year){
 
@@ -223,21 +197,6 @@ return (
     
 })  
 
-
-function getData () {
-
-axios.get('https://studentbe.herokuapp.com/allrecords')
-.then(res=>console.log(res))
-.catch(e=>console.log(e))
-   
-   }
-   
-   
-   useEffect(()=>{
-   getData()
-   
-   },[searchText])
-   
 function handleClear(){
 setSearchText("")
 setSearchInvoked(false)
@@ -261,7 +220,6 @@ function handleSearch () {
     
 }
 
-
 function filterLogic () {
 if(searchInvoked){
     // return filteredData
@@ -274,32 +232,45 @@ return graduationYearFilter[gradYear]
     return data
 }
 
+useEffect(()=>{
+    setisDataLoaded (true)
+    
+    axios.get('/allrecords')
+    .then(res=>{
+            console.log(res)
+            setData(res.data)
+            setisDataLoaded(false)
+        })
+    .catch(e=>{
+        setisDataLoaded(false)
+        console.log(e)}
+    )
+},[])
+
+
+if(isDataLoaded){
+   return   <Spinner />
+}
 return (  
 
 <div className='container'>
+
    <div>
-{/* <Modal 
-buttonLabel="Open"
-title="Whats up Title"
-body={"I am body of the Modal"}
-/> */}
-<button onClick={()=>setFav([])}>Clear All Favorites</button>
-<button onClick={()=>history.push("/")}>Go Home </button>
-<button onClick={()=>handleRetrieveAllRecords()}>Retrieve All Records</button>
-<button onClick={()=>history.push(`/test?isSubmitDisabled=${isSubmitDisabled}`)}>Test</button>
+
+        <button onClick={()=>setFav([])}>Clear All Favorites</button>
+        <button onClick={()=>history.push("/")}>Go Home </button>
+        <button onClick={()=>handleRetrieveAllRecords()}>Retrieve All Records</button>
+        <button onClick={()=>history.push(`/test?isSubmitDisabled=${isSubmitDisabled}`)}>Test</button>
        </div> 
 
 
-<div>
-<input autoFocus placeholder='Search with Company name' onKeyPress={(e)=>handleKeyPress(e)} value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
-<span style={{marginLeft:'20px'}}><Button disabled={searchInvoked} onClick={()=>handleSearch()} color="primary">Search</Button></span>
-{searchInvoked && <span style={{marginLeft:'20px'}}>
-     <Button onClick={()=>handleClear()} color="primary">Clear</Button>
-     {getGraduationYear()}
-
-</span>
-
-}
+        <div>
+        <input autoFocus placeholder='Search with Company name' onKeyPress={(e)=>handleKeyPress(e)} value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
+        <span style={{marginLeft:'20px'}}><Button disabled={searchInvoked} onClick={()=>handleSearch()} color="primary">Search</Button></span>
+        {searchInvoked && <span style={{marginLeft:'20px'}}>
+            <Button onClick={()=>handleClear()} color="primary">Clear</Button>
+            {getGraduationYear()}
+        </span>}
 </div>
 <div>{`Total record :::${filterLogic().length}`}</div>
 <div>{`Total deleted record :::${deletedRecords.length}`}</div>
