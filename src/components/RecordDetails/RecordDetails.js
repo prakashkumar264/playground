@@ -1,41 +1,56 @@
 
-import axios from 'axios'
-import React, {fragment, useEffect, useState} from 'react'
-import {Link, Redirect, useHistory, useParams} from 'react-router-dom'
 
-function RecordDetails(){
-    const [isDataLoaded, setisDataLoaded] = useState(false)
-    const [data,setData] = useState([])
-    const params = useParams()
-
-   console.log(params, 'param')
+import React, { Fragment, useEffect, useState } from 'react';
+import { Link, Redirect, useHistory,useParams } from "react-router-dom";
+import axios from '../axios'
+import Spinner from '@material-ui/core/LinearProgress';
+import CardDetails from '../CardDetails/CardDetails';
+import Toast from '../Toast/Toast';
 
 
 
-    console.log('test')
 
-    useEffect(()=>{
-        setisDataLoaded(true)
-        axios.get(`/recorddetails/?id=${params.Id}`)
-        .then(res=>{
-            console.log(res)
-            setData(res.data)
-            setisDataLoaded(false)
-        })
-        .catch(e=>{
-            setisDataLoaded(false)
-            console.log(e)}
-        )
+function RecordDetails () {
+
+const [isDataLoading, setIsDataLoading] = useState(false)
+const [data, setData]=useState([])
+console.log(data);
+
+
+const params = useParams()
+console.log(params,'params')
+
+useEffect(()=>{
+    setIsDataLoading(true)
+    axios.get(`/recorddetails/?Id=${params.Id}`)
+    .then(res=>{
+        console.log(res)
+        setData(res.data)
+        setIsDataLoading(false)
     })
+    .catch(e=>{
+        setIsDataLoading(false)
+        console.log(e)
+    })
+    },[])
+
+    if(isDataLoading){
+        return <Spinner />
+     }
     
-
-    return (
-
+     return (
         <div>
-            record details
+ <CardDetails 
+ Employer={data.Employer} 
+careerUrl={data.Career_Url}
+Job_Title={data.Job_Title}
+Job_Start_Date={data.Job_Start_Date}
+Specialization={data.Specialization}
+University_Name={data.University_Name}  
+ />
         </div>
     )
-
 }
+
 
 export default RecordDetails

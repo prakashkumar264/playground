@@ -1,5 +1,3 @@
-
-
 import React, { Fragment, useEffect, useState } from 'react';
 import './Form.scss'
 import './beststyles.scss'
@@ -20,7 +18,19 @@ import Box from '@material-ui/core/Box';
 
 
 
-function FormHome(props) {
+
+// //console.log(uuidData,'uuidData');
+// Career_Url: "https://ibegin.tcs.com/iBegin/jobs/search"
+// Employer: "TCS"
+// Graduation_Year: 2020
+// Job_Start_Date: "6/20/2020"
+// Job_Title: "Software Engineer"
+// Specialization: "Computer Science"
+// University_Name: "University of North Carolina at Charlotte"'
+// Id:2303333303303003
+
+
+function FormHome() {
 const [fav, setFav] =useState([])
 const [data, setData]=useState([])
 const [deletedRecords, setDeletedRecords]=useState([])
@@ -41,16 +51,17 @@ const [graduationYearFilter,setGraduationYearFilter]=useState({})
 const [currentPage,setCurrentPage]=useState(1)
 const [page, setPage] =useState([])
 const [entriesPerPage, setEntriesPerPage] = useState(25)
-const [isDataLoaded, setisDataLoaded] = useState(false)
+const [isDataLoading, setIsDataLoading] = useState(false)
+
 
 
 function getSliced(){
     let copyData=[...data]
     let returnData= copyData.slice((currentPage-1) * entriesPerPage,currentPage*entriesPerPage)
+    //console.log((currentPage-1)*entriesPerPage,(currentPage)*entriesPerPage ,'SLICED ')
+    // //console.log(returnData,'returnData')
     return returnData
 }
-
-
 
 const history= useHistory()
 
@@ -65,17 +76,18 @@ useEffect(()=>{
     let totalEntries = data && data.length
     let wholePage= Math.ceil(totalEntries/entriesPerPage)
    let arr=  Array(wholePage).fill(0)
-//    console.log(arr,'arr')
+//    //console.log(arr,'arr')
    let pages=  arr.map((i,idx)=>{
        return (idx+1)
     })
-// console.log(pages,'pages');
+// //console.log(pages,'pages');
     setPage(pages)
 
 },[data,entriesPerPage])
   
+
 function handleFormSubmit () {
-   // console.log('handleFormSubmit invoked')
+    //console.log('handleFormSubmit invoked')
     setIsSubmitDisabled(true)
     setTimeout(()=>{
         setIsSubmitDisabled(false)
@@ -98,25 +110,39 @@ setData(copyData)
 }
 
 function handleKeyPress (e) {
-console.log(e.onKeyDown,'e.keyCode')
+//console.log(e.onKeyDown,'e.keyCode')
 if(e.which == 13 || e.keyCode == 13){
     handleSearch()
 }
 
 }
 // function handleCardContainerOnClick (Id) {
-// // console.log('handleCardContainer Click invoked',Id);  
+// //console.log('handleCardContainer Click invoked',Id);  
 // let entry =data.filter(i=>i.Id === Id)
-// // console.log(entry,'filteredEntry');
+// //console.log(entry,'filteredEntry');
 // setViewCurrentRecord(entry[0])
 // setIsModalOpen(true)
-
 // }
+function handleCardContainerOnClick (Id) {
+   history.push(`/app/recorddetails/${Id}`)
+}
+
+//click on container - route to new component 
+//new component 
+// push new route to stack 
+// new route app/recordetails -- New Component 
+// useHistory - /app/recorddetails?id='fdfd-fdd
+// New Compnet - useParams -- "fdfd-fdd"
+// useEffect ( make the backend end call and attacht to request )
+// back end with one record 
+//show it on screen using Card Component  
+
+
 
 function deleteRecord (e,Id) {
     e.stopPropagation()
 let deletedRecord= data.filter((i)=>i.Id ===Id)
-// console.log(deletedRecord,'deletedRecord');
+//console.log(deletedRecord,'deletedRecord');
 
 let  copyDelRecords=[...deletedRecords]
 copyDelRecords.push(deletedRecord[0])
@@ -127,18 +153,28 @@ let remainingRecord= data.filter((i)=>{
     return i.Id !==Id 
    })   
 setData(remainingRecord)
-
+// //console.log(remainingRecord,'remainingRecord');
 }
-
-function handleCardContainerOnClick(Id){
-    history.push(`/recorddetails/?id=${Id}`)
-}
+// componentDidMount
+useEffect(()=>{
+setIsDataLoading(true)
+axios.get('/allrecords')
+.then(res=>{
+    console.log(res)
+    setData(res.data)
+    setIsDataLoading(false)
+})
+.catch(e=>{
+    setIsDataLoading(false)
+    console.log(e)
+})
+},[])
 
 function handleGraduationDateOnChange(year){
 
     let copyObj= {...graduationYearFilter}
     copyObj[year]=!copyObj[year]
-//  console.log(copyObj,'copyObj');
+//  //console.log(copyObj,'copyObj');
  setGraduationYearFilter(copyObj)
 
 }
@@ -171,7 +207,7 @@ function getGraduationYear(){
 
 function handleRetrieveAllRecords() {
 let mergedRecords = [...deletedRecords,...data]
-console.log(mergedRecords,'mergedRecords');
+//console.log(mergedRecords,'mergedRecords');
 setData(mergedRecords)
 setDeletedRecords([])
 }
@@ -197,6 +233,7 @@ return (
     
 })  
 
+   
 function handleClear(){
 setSearchText("")
 setSearchInvoked(false)
@@ -213,12 +250,13 @@ function handleSearch () {
         copyData = copyData.filter(i=>{
         return i.Employer.toLowerCase().includes(searchText.toLowerCase())
        }) 
-       console.log(copyData,'copyData');
+       //console.log(copyData,'copyData');
     if(setSearchInvoked){
        setFilteredData(copyData)
     }
     
 }
+
 
 function filterLogic () {
 if(searchInvoked){
@@ -232,45 +270,33 @@ return graduationYearFilter[gradYear]
     return data
 }
 
-useEffect(()=>{
-    setisDataLoaded (true)
-    
-    axios.get('/allrecords')
-    .then(res=>{
-            console.log(res)
-            setData(res.data)
-            setisDataLoaded(false)
-        })
-    .catch(e=>{
-        setisDataLoaded(false)
-        console.log(e)}
-    )
-},[])
-
-
-if(isDataLoaded){
-   return   <Spinner />
+if(isDataLoading){
+   return <Spinner />
 }
+
 return (  
 
 <div className='container'>
 
-   <div>
+<div>
 
-        <button onClick={()=>setFav([])}>Clear All Favorites</button>
-        <button onClick={()=>history.push("/")}>Go Home </button>
-        <button onClick={()=>handleRetrieveAllRecords()}>Retrieve All Records</button>
-        <button onClick={()=>history.push(`/test?isSubmitDisabled=${isSubmitDisabled}`)}>Test</button>
+<button onClick={()=>setFav([])}>Clear All Favorites</button>
+<button onClick={()=>history.push("/")}>Go Home </button>
+<button onClick={()=>handleRetrieveAllRecords()}>Retrieve All Records</button>
+<button onClick={()=>history.push(`/test?isSubmitDisabled=${isSubmitDisabled}`)}>Test</button>
        </div> 
 
 
-        <div>
-        <input autoFocus placeholder='Search with Company name' onKeyPress={(e)=>handleKeyPress(e)} value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
-        <span style={{marginLeft:'20px'}}><Button disabled={searchInvoked} onClick={()=>handleSearch()} color="primary">Search</Button></span>
-        {searchInvoked && <span style={{marginLeft:'20px'}}>
-            <Button onClick={()=>handleClear()} color="primary">Clear</Button>
-            {getGraduationYear()}
-        </span>}
+<div>
+<input autoFocus placeholder='Search with Company name' onKeyPress={(e)=>handleKeyPress(e)} value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
+<span style={{marginLeft:'20px'}}><Button disabled={searchInvoked} onClick={()=>handleSearch()} color="primary">Search</Button></span>
+{searchInvoked && <span style={{marginLeft:'20px'}}>
+     <Button onClick={()=>handleClear()} color="primary">Clear</Button>
+     {getGraduationYear()}
+
+</span>
+
+}
 </div>
 <div>{`Total record :::${filterLogic().length}`}</div>
 <div>{`Total deleted record :::${deletedRecords.length}`}</div>
@@ -331,8 +357,8 @@ Here is list of companies
    return  <span className={i !== currentPage ? `page` : `highlightedpage`} onClick={()=>setCurrentPage(i)}>{i}</span>
 })}
 <Button disabled={page.length === currentPage} onClick={()=>setCurrentPage(currentPage+1)} color="primary">Next</Button>
-{/* <label>Enter number of records per page </label> */}
-{/* <input onBlur={(e)=>setEntriesPerPage(e.target.value)} type='number' /> */}
+<label>Enter number of records per page </label>
+<input onBlur={(e)=>setEntriesPerPage(e.target.value)} type='number' />
 
 </div>
 <div>
