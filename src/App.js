@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Link,
-  Route 
+  Route, 
+  Switch
 } from 'react-router-dom';
 import Exercisetwo from "./Exercisetwo"
 import Exerciseone from "./Exerciseone"
@@ -22,6 +23,8 @@ function App() {
 
   const [isNavOpen,setIsNavOpen]=useState(true)
 
+
+  console.log(process.env.NODE_ENV, 'process.env.NODE_ENV')
   return (
     <div className="App">
       <div className="App-header"> 
@@ -42,8 +45,9 @@ function App() {
            <li><Link to="/CarouselPage">Carousel</Link></li>
           </ul>
         </div>
-     
-         <Route path="/Exerciseone" component={Exerciseone}/>
+        
+        <Switch>
+        <Route path="/Exerciseone" component={Exerciseone}/>
          <Route path="/Exercisetwo" component={Exercisetwo}/>
          <Route path="/Exercisethree" component={Exercisethree}/>
          <Route path="/Exercisefour" component={Exercisefour}/>
@@ -55,6 +59,8 @@ function App() {
          <Route path="/FormHome" component={FormHome}/>
          <Route path="/recorddetails/:Id" component={RecordDetails}/>
          <Route path="/CarouselPage" component={CarouselPage}/>
+        </Switch>
+
        </Router>
 
        </div>
